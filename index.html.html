@@ -1,0 +1,3784 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>SAAB 3.2.1 Oficina Ipiranga : Plano de Vistoria de Veículo</title>
+  <!-- PWA Meta Tags -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Vistoria">
+  <meta name="theme-color" content="#0F2A4A">
+  <link rel="apple-touch-icon" href="https://generated-images.adapta.one/jemiguel2016%40gmail.com/01a0aff5-9b4a-73ec-8d31-3afe9aa3bd53/2026-10-01T22-23-50-229Z_Original_user_intent_A_modern_flat_app_icon_for_a.png">
+  <link rel="icon" type="image/png" href="https://generated-images.adapta.one/jemiguel2016%40gmail.com/01a0aff5-9b4a-73ec-8d31-3afe9aa3bd53/2026-10-01T22-23-50-229Z_Original_user_intent_A_modern_flat_app_icon_for_a.png">
+  <link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%22Plano%20de%20Vistoria%22%2C%22short_name%22%3A%22Vistoria%22%2C%22start_url%22%3A%22.%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%230F2A4A%22%2C%22theme_color%22%3A%22%230F2A4A%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22https%3A%2F%2Fgenerated-images.adapta.one%2Fjemiguel2016%2540gmail.com%2F01a0aff5-9b4a-73ec-8d31-3afe9aa3bd53%2F2026-10-01T22-23-50-229Z_Original_user_intent_A_modern_flat_app_icon_for_a.png%22%2C%22sizes%22%3A%22512x512%22%2C%22type%22%3A%22image%2Fpng%22%2C%22purpose%22%3A%22any%20maskable%22%7D%5D%7D">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/basecoat-css@1.0.2/dist/basecoat.cdn.min.css">
+  <style>
+/* Skip artifact shell — fixed styles served beside every artifact.
+   Complements basecoat; artifacts override --accent for their own identity. */
+:root {
+  color-scheme: light dark;
+  --accent: #2563eb;
+  --accent-contrast: #ffffff;
+  --accent-text: color-mix(in srgb, var(--accent) 72%, #000);
+  --bg: #f8f9fb;
+  --surface: #ffffff;
+  --text: #14171f;
+  --text-muted: #5b6472;
+  --border: rgba(20, 23, 31, 0.10);
+  --radius: 10px;
+  --shadow: 0 1px 3px rgba(20, 23, 31, 0.08);
+  --space: 16px;
+}
+/* Theme resolution. Without data-theme the viewer's system preference decides,
+   as it always did. With it, the artifact's own choice wins in BOTH directions:
+   a page that hardcodes one palette must not be handed the opposite set of
+   tokens by the machine it happens to be opened on. The dark values appear
+   twice because a media query cannot be folded into a selector list.
+   The attribute sits inside :where() so these blocks keep the specificity of a
+   bare :root — the page's own <style> is linked after this file and must go on
+   overriding any token it wants, exactly as it could before. */
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    --accent-text: color-mix(in srgb, var(--accent) 78%, #fff);
+    --bg: #101318;
+    --surface: #181c23;
+    --text: #eef1f6;
+    --text-muted: #9aa4b2;
+    --border: rgba(238, 241, 246, 0.12);
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  }
+}
+:root:where([data-theme="dark"]) {
+  color-scheme: dark;
+  --accent-text: color-mix(in srgb, var(--accent) 78%, #fff);
+  --bg: #101318;
+  --surface: #181c23;
+  --text: #eef1f6;
+  --text-muted: #9aa4b2;
+  --border: rgba(238, 241, 246, 0.12);
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+:root:where([data-theme="light"]) { color-scheme: light; }
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+
+.shell-container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+.shell-section { padding: calc(var(--space) * 2) 0; }
+.shell-grid { display: grid; gap: var(--space); grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.shell-toolbar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: var(--space); }
+.shell-footer { padding: 24px 0 40px; color: var(--text-muted); font-size: 13px; }
+
+.shell-hero { padding: calc(var(--space) * 3) 0 calc(var(--space) * 2); }
+.shell-hero h1 { font-size: clamp(26px, 4vw, 40px); line-height: 1.15; margin: 0 0 10px; text-wrap: balance; }
+.shell-hero p { color: var(--text-muted); max-width: 60ch; margin: 0; }
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: var(--space);
+}
+
+.kpi { display: flex; flex-direction: column; gap: 4px; }
+.kpi .kpi-value { font-size: 28px; font-weight: 650; line-height: 1.1; }
+.kpi .kpi-label { font-size: 13px; color: var(--text-muted); }
+.kpi .kpi-delta { font-size: 12.5px; font-weight: 600; }
+.kpi .kpi-delta.up { color: #0a8f3c; }
+.kpi .kpi-delta.down { color: #cf3131; }
+
+table.shell-table { border-collapse: collapse; width: 100%; font-size: 14px; }
+table.shell-table th {
+  text-align: left; font-size: 11.5px; letter-spacing: 0.05em; text-transform: uppercase;
+  color: var(--text-muted); font-weight: 600;
+}
+table.shell-table th, table.shell-table td { padding: 9px 12px 9px 0; border-bottom: 1px solid var(--border); }
+table.shell-table td.num, table.shell-table th.num { text-align: right; font-variant-numeric: tabular-nums; }
+table.shell-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 6%, transparent); }
+
+.chart-box { width: 100%; min-height: 220px; }
+.chart-box svg { width: 100%; height: auto; display: block; }
+
+.muted { color: var(--text-muted); }
+.accent { color: var(--accent-text); }
+.shell-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 12%, transparent); color: var(--accent-text);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .shell-fade { animation: shell-fade 400ms ease both; }
+  @keyframes shell-fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+}
+
+</style>
+  
+  <style>
+    :root {
+      --accent: #e65100;
+      --accent-hover: #c94400;
+      --navy-950: #051329;
+      --navy-900: #0a1e3b;
+      --navy-800: #102b52;
+      --navy-700: #183e74;
+      --navy-100: #eaf1fa;
+      --navy-50: #f4f8fd;
+      --steel-200: #cbd5e1;
+      --steel-500: #64748b;
+      --surface: #ffffff;
+      --surface-subtle: #f8fafc;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --border: #cbd5e1;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+      --shadow-sm: 0 1px 3px rgba(10,30,59,0.08);
+      --shadow-md: 0 4px 12px rgba(10,30,59,0.12);
+    }
+
+    body {
+      background-color: #f1f5f9;
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding-bottom: 60px;
+    }
+
+    /* Top Official Bar */
+    .gov-bar {
+      background: linear-gradient(135deg, var(--navy-950) 0%, var(--navy-900) 60%, var(--navy-800) 100%);
+      color: #ffffff;
+      padding: 18px 20px;
+      border-bottom: 4px solid var(--accent);
+      box-shadow: var(--shadow-md);
+    }
+    .gov-bar-content {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .gov-badge-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .gov-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: rgba(230,81,0,0.22);
+      border: 1px solid rgba(253,186,116,0.5);
+      padding: 3px 10px;
+      border-radius: 4px;
+      color: #fed7aa;
+    }
+    .gov-badge-sec {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgba(255,255,255,0.12);
+      padding: 3px 8px;
+      border-radius: 4px;
+      color: #e2e8f0;
+    }
+    .gov-title {
+      font-size: 1.7rem;
+      font-weight: 900;
+      margin: 0;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+      line-height: 1.15;
+    }
+    .gov-subtitle {
+      font-size: 1.05rem;
+      margin: 0;
+      color: #fdba74;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+    .gov-desc {
+      font-size: 0.85rem;
+      margin: 0;
+      color: #cbd5e1;
+      font-weight: 400;
+    }
+
+    /* Fleet selection panel */
+    .fleet-card {
+      background: #ffffff;
+      border: 2px solid var(--navy-100);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+    .fleet-layout {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+    @media (max-width: 820px) {
+      .fleet-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+    .fleet-select-col {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      justify-content: center;
+    }
+    .fleet-preview-col {
+      background: linear-gradient(145deg, #0a1e3b, #102b52);
+      border: 1px solid #1e3a63;
+      border-radius: var(--radius-md);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 200px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: inset 0 2px 6px rgba(0,0,0,0.3);
+    }
+    .fleet-preview-svg-container {
+      width: 100%;
+      max-width: 280px;
+      min-height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .fleet-preview-svg-container svg {
+      width: 100%;
+      height: 110px;
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.35));
+    }
+    .fleet-preview-img {
+      width: 220px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.25);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      display: block;
+    }
+    .fleet-type-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 8px;
+      padding: 4px 12px;
+      background: rgba(230,81,0,0.25);
+      border: 1px solid #ea580c;
+      color: #fdba74;
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-radius: 999px;
+    }
+    .fleet-select {
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 11px 14px;
+      border: 2px solid var(--navy-800);
+      border-radius: var(--radius-sm);
+      background-color: #ffffff;
+      color: var(--navy-900);
+      cursor: pointer;
+      width: 100%;
+    }
+    .fleet-select:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(230,81,0,0.2);
+    }
+
+    .main-wrapper {
+      max-width: 1080px;
+      margin: 20px auto;
+      padding: 0 16px;
+    }
+
+    /* Actions sticky / top panel */
+    .top-actions-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      margin-bottom: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: var(--shadow-sm);
+    }
+    .action-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* Section Card */
+    .section-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--navy-100);
+    }
+    .section-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy-800);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-title-num {
+      background: var(--navy-800);
+      color: #ffffff;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+    }
+
+    /* Progress tracker */
+    .progress-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: var(--radius-md);
+      padding: 12px 16px;
+      margin-bottom: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 640px) {
+      .progress-box {
+        grid-template-columns: 1fr;
+      }
+    }
+    .progress-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .progress-item-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+    }
+    .progress-track {
+      background: #e2e8f0;
+      height: 9px;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .progress-bar {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 999px;
+      transition: width 0.3s ease;
+      width: 0%;
+    }
+    .progress-bar.success {
+      background: #16a34a;
+    }
+
+    /* Form Fields Grid */
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 768px) {
+      .grid-2col {
+        grid-template-columns: 1fr;
+      }
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .form-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--navy-900);
+    }
+    .form-input {
+      padding: 10px 12px;
+      font-size: 0.95rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: #ffffff;
+      color: var(--text);
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .form-input:focus {
+      outline: none;
+      border-color: var(--navy-800);
+      box-shadow: 0 0 0 3px rgba(16,42,69,0.15);
+    }
+    .form-textarea {
+      min-height: 100px;
+      resize: vertical;
+      line-height: 1.5;
+    }
+
+    /* Fuel Level Buttons */
+    .fuel-selector {
+      display: flex;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      background: #ffffff;
+    }
+    .fuel-btn {
+      flex: 1;
+      padding: 10px 4px;
+      border: none;
+      background: transparent;
+      color: var(--text);
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      border-right: 1px solid var(--border);
+      transition: all 0.15s ease;
+      text-align: center;
+    }
+    .fuel-btn:last-child {
+      border-right: none;
+    }
+    .fuel-btn:hover {
+      background: #f1f5f9;
+    }
+    .fuel-btn.active {
+      background: var(--navy-800);
+      color: #ffffff;
+    }
+
+    /* Items Vistoria (S / N) */
+    .inspection-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 12px;
+    }
+    .item-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: var(--radius-sm);
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
+      transition: border-color 0.2s ease;
+    }
+    .item-card.answered {
+      border-color: #cbd5e1;
+      background: #ffffff;
+    }
+    .item-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--navy-800);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .item-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .sn-btn {
+      padding: 9px 4px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: #ffffff;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      text-align: center;
+    }
+    .sn-btn:hover {
+      border-color: var(--steel-500);
+    }
+    .sn-btn.sim.active {
+      background: #15803d;
+      border-color: #15803d;
+      color: #ffffff;
+      box-shadow: 0 2px 4px rgba(21,128,61,0.25);
+    }
+    .sn-btn.nao.active {
+      background: #b91c1c;
+      border-color: #b91c1c;
+      color: #ffffff;
+      box-shadow: 0 2px 4px rgba(185,28,28,0.25);
+    }
+
+    /* Vehicle Photos & Damage Pinning */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 840px) {
+      .photo-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .photo-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .photo-card-head {
+      background: var(--navy-100);
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--steel-200);
+    }
+    .photo-card-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--navy-800);
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .photo-head-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .photo-upload-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--navy-800);
+      background: #ffffff;
+      border: 1px solid var(--steel-200);
+      padding: 5px 9px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+    .photo-upload-label:hover {
+      background: #f1f5f9;
+      border-color: var(--navy-800);
+    }
+    .photo-clear-btn {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #b91c1c;
+      background: #ffffff;
+      border: 1px solid #fecaca;
+      padding: 5px 9px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+    .photo-clear-btn:hover {
+      background: #fee2e2;
+      border-color: #b91c1c;
+    }
+    .photo-guidance-card {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      color: #1e3a8a;
+      font-size: 0.85rem;
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      margin-bottom: 16px;
+      line-height: 1.45;
+    }
+    .photo-stage-wrapper {
+      position: relative;
+      background: #0f172a;
+      min-height: 240px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      cursor: crosshair;
+      user-select: none;
+      touch-action: manipulation;
+    }
+    .photo-stage-wrapper img {
+      width: 100%;
+      height: 260px;
+      object-fit: contain;
+      display: block;
+      pointer-events: none;
+      transition: transform 0.2s ease;
+    }
+    .photo-stage-wrapper img.is-mirrored {
+      transform: scaleX(-1);
+    }
+    .photo-click-hint {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(10,25,47,0.78);
+      color: #ffffff;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 4px 8px;
+      border-radius: 4px;
+      pointer-events: none;
+      backdrop-filter: blur(2px);
+    }
+    .pin-marker {
+      position: absolute;
+      width: 26px;
+      height: 26px;
+      transform: translate(-50%, -50%);
+      background: #ea580c;
+      color: #ffffff;
+      border: 2px solid #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+      transition: transform 0.15s ease, background-color 0.15s ease;
+      z-index: 10;
+    }
+    .pin-marker:hover {
+      transform: translate(-50%, -50%) scale(1.2);
+      background: #c2410c;
+      z-index: 20;
+    }
+
+    /* Pin list below each photo */
+    .photo-pins-list {
+      padding: 12px 14px;
+      background: #f8fafc;
+      border-top: 1px solid var(--steel-200);
+      font-size: 0.85rem;
+      flex: 1;
+    }
+    .photo-pins-title {
+      font-weight: 700;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .pin-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      background: #ffffff;
+      padding: 6px 10px;
+      border-radius: 6px;
+      border: 1px solid #e2e8f0;
+      margin-bottom: 6px;
+    }
+    .pin-item:last-child {
+      margin-bottom: 0;
+    }
+    .pin-item-info {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow: hidden;
+    }
+    .pin-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      background: #ea580c;
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 800;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .pin-desc {
+      font-size: 0.82rem;
+      color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .pin-delete-btn {
+      background: transparent;
+      border: none;
+      color: #94a3b8;
+      cursor: pointer;
+      font-size: 16px;
+      line-height: 1;
+      padding: 2px 6px;
+      border-radius: 4px;
+      transition: color 0.15s ease, background-color 0.15s ease;
+    }
+    .pin-delete-btn:hover {
+      color: #b91c1c;
+      background: #fee2e2;
+    }
+    .empty-pins-msg {
+      color: #94a3b8;
+      font-size: 0.8rem;
+      font-style: italic;
+      margin: 0;
+    }
+
+    /* Modal / Popup for entering pin details */
+    .modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(10,25,47,0.55);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      padding: 16px;
+      backdrop-filter: blur(2px);
+    }
+    .modal-backdrop.open {
+      display: flex;
+    }
+    .modal-card {
+      background: #ffffff;
+      width: 100%;
+      max-width: 460px;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      animation: modalFadeIn 0.2s ease-out;
+    }
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: translateY(12px) scale(0.97); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .modal-head {
+      background: var(--navy-800);
+      color: #ffffff;
+      padding: 14px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .modal-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin: 0;
+    }
+    .modal-close-btn {
+      background: transparent;
+      border: none;
+      color: #cbd5e1;
+      font-size: 20px;
+      cursor: pointer;
+      line-height: 1;
+    }
+    .modal-close-btn:hover {
+      color: #ffffff;
+    }
+    .modal-body {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .modal-quick-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .tag-btn {
+      font-size: 0.75rem;
+      font-weight: 600;
+      background: var(--navy-100);
+      color: var(--navy-800);
+      border: 1px solid #bfdbfe;
+      padding: 4px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.15s;
+    }
+    .tag-btn:hover {
+      background: #dbeafe;
+    }
+    .modal-actions {
+      padding: 12px 18px;
+      background: #f8fafc;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    /* Common Buttons */
+    .app-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      padding: 10px 18px;
+      border-radius: var(--radius-sm);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      text-decoration: none;
+    }
+    .app-btn-primary {
+      background: var(--accent);
+      color: #ffffff;
+    }
+    .app-btn-primary:hover {
+      background: #c2410c;
+    }
+    .app-btn-navy {
+      background: var(--navy-800);
+      color: #ffffff;
+    }
+    .app-btn-navy:hover {
+      background: var(--navy-900);
+    }
+    .app-btn-outline {
+      background: #ffffff;
+      border-color: var(--border);
+      color: var(--navy-800);
+    }
+    .app-btn-outline:hover {
+      background: #f1f5f9;
+      border-color: var(--navy-800);
+    }
+    .app-btn-danger {
+      background: #ffffff;
+      border-color: #fca5a5;
+      color: #b91c1c;
+    }
+    .app-btn-danger:hover {
+      background: #fee2e2;
+    }
+    .app-btn-accent {
+      background: #ea580c;
+      color: #ffffff;
+    }
+    .app-btn-accent:hover {
+      background: #c2410c;
+    }
+
+    /* Banner informativo e instrucoes */
+    .info-callout {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      color: #166534;
+      padding: 10px 14px;
+      border-radius: var(--radius-md);
+      font-size: 0.85rem;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Collapsible Help Guide */
+    .help-accordion {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      margin-bottom: 22px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    .help-summary {
+      padding: 14px 18px;
+      background: #f8fafc;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--navy-800);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      list-style: none;
+    }
+    .help-summary::-webkit-details-marker {
+      display: none;
+    }
+    .help-summary:hover {
+      background: #f1f5f9;
+    }
+    .help-content {
+      padding: 18px;
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      background: #ffffff;
+    }
+    .help-step-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: var(--radius-sm);
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .help-step-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 800;
+      font-size: 0.9rem;
+      color: var(--navy-900);
+    }
+    .help-step-badge {
+      background: var(--accent);
+      color: #ffffff;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      flex-shrink: 0;
+    }
+    .help-step-body {
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: var(--text-muted);
+    }
+    .help-step-body ol {
+      margin: 6px 0 0 0;
+      padding-left: 18px;
+    }
+    .help-step-body li {
+      margin-bottom: 4px;
+    }
+
+    /* Toast Notification */
+    .toast-notice {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #0a1e3b;
+      color: #ffffff;
+      border: 2px solid #ea580c;
+      padding: 14px 20px;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      max-width: 90%;
+      width: 480px;
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+    }
+    .toast-notice.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .toast-icon {
+      font-size: 24px;
+      color: #fed7aa;
+      flex-shrink: 0;
+    }
+    .toast-text {
+      font-size: 0.85rem;
+      line-height: 1.4;
+      color: #f1f5f9;
+    }
+    .toast-text strong {
+      color: #fed7aa;
+    }
+
+    /* History table */
+    .history-card {
+      margin-top: 24px;
+    }
+    .history-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+    .history-table th, .history-table td {
+      padding: 10px 12px;
+      text-align: left;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .history-table th {
+      background: #f8fafc;
+      color: var(--navy-800);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+    }
+
+    /* Print Template (Shown during print or report view) */
+    #printReportArea {
+      display: none;
+    }
+
+    @page {
+      size: A4 portrait;
+      margin: 8mm 8mm 6mm 8mm;
+    }
+
+    @media print {
+      html, body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        font-size: 11px !important;
+        line-height: 1.3 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .gov-bar,
+      .top-actions-card,
+      .fleet-card,
+      .progress-box,
+      .modal-backdrop,
+      .no-print,
+      #appFormSection,
+      .history-card {
+        display: none !important;
+      }
+      #printReportArea {
+        display: block !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+      .print-page {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        page-break-inside: auto !important;
+        break-inside: auto !important;
+      }
+      .print-header {
+        text-align: center;
+        border-bottom: 2px solid #0a1e3b;
+        padding-bottom: 4px;
+        margin-bottom: 8px;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+      .print-header h1 {
+        font-size: 20px;
+        margin: 0;
+        font-weight: 800;
+        text-transform: uppercase;
+        color: #0a1e3b !important;
+        line-height: 1.15;
+      }
+      .print-header h2 {
+        font-size: 13px;
+        margin: 2px 0;
+        font-weight: 600;
+        color: #475569 !important;
+      }
+      .print-header h3 {
+        font-size: 14px;
+        margin: 2px 0 0 0;
+        font-weight: 800;
+        text-transform: uppercase;
+        color: #c2410c !important;
+        letter-spacing: 0.04em;
+      }
+      .print-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 8px;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+      .print-table th, .print-table td {
+        border: 1px solid #334155;
+        padding: 3px 5px;
+        font-size: 11px;
+        line-height: 1.2;
+      }
+      .print-table th {
+        background-color: #f1f5f9 !important;
+        font-weight: bold;
+        color: #0f172a !important;
+      }
+      .print-section-heading {
+        font-weight: 800;
+        font-size: 12px;
+        text-transform: uppercase;
+        margin-top: 8px;
+        margin-bottom: 6px;
+        border-bottom: 1.5px solid #0a1e3b;
+        padding-bottom: 2px;
+        color: #0a1e3b !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+      .print-photo-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        margin-bottom: 8px;
+        page-break-inside: auto !important;
+        break-inside: auto !important;
+      }
+      .print-photo-box {
+        border: 1px solid #475569;
+        padding: 6px;
+        background: #ffffff;
+        border-radius: 4px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+      .print-photo-title {
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+        border-bottom: 1px solid #cbd5e1;
+        padding-bottom: 2px;
+        color: #0f172a !important;
+        display: flex;
+        justify-content: space-between;
+      }
+      .print-stage-container {
+        position: relative;
+        width: 100%;
+        min-height: 80px;
+        background: #0f172a !important;
+        border-radius: 3px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: visible;
+        box-sizing: border-box;
+        padding: 0;
+      }
+      .print-image-wrapper {
+        position: relative;
+        display: inline-block;
+        max-width: 100%;
+        line-height: 0;
+        overflow: visible;
+        margin: 0 auto;
+        box-sizing: border-box;
+      }
+      .print-image-wrapper img {
+        display: block;
+        max-width: 100%;
+        max-height: 130px;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        margin: 0 auto;
+      }
+      .print-pin-marker {
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        background: #ea580c !important;
+        color: #ffffff !important;
+        border: 1.5px solid #ffffff;
+        border-radius: 50%;
+        font-size: 10.5px;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 1px 3px rgba(0,0,0,0.6);
+        z-index: 10;
+        line-height: 1;
+        text-align: center;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .print-pin-compact-list {
+        margin: 4px 0 0 0;
+        padding: 0;
+        list-style: none;
+      }
+      .print-pin-compact-item {
+        font-size: 10px;
+        line-height: 1.25;
+        white-space: normal;
+        word-break: break-word;
+        color: #1e293b;
+        margin-bottom: 2px;
+      }
+      .print-pin-badge-inline {
+        display: inline-block;
+        background: #ea580c !important;
+        color: #ffffff !important;
+        font-size: 9px;
+        font-weight: 800;
+        border-radius: 50%;
+        width: 14px;
+        height: 14px;
+        text-align: center;
+        line-height: 14px;
+        margin-right: 4px;
+      }
+      .print-obs-box {
+        border: 1px solid #475569;
+        padding: 6px 8px;
+        margin-top: 8px;
+        margin-bottom: 10px;
+        background: #f8fafc;
+        border-radius: 4px;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+      .print-obs-title {
+        font-size: 11.5px;
+        font-weight: 800;
+        text-transform: uppercase;
+        color: #0f172a;
+        margin-bottom: 2px;
+      }
+      .print-obs-content {
+        margin: 0;
+        font-size: 11px;
+        line-height: 1.35;
+        color: #1e293b;
+        max-height: 38px;
+        overflow: hidden;
+      }
+      .print-signatures {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        margin-top: 10px;
+        padding-top: 4px;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+      .sig-block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .sig-space {
+        height: 22px;
+      }
+      .sig-line {
+        width: 100%;
+        max-width: 320px;
+        border-top: 1.2px solid #000000;
+        padding-top: 4px;
+        font-size: 11px;
+        font-weight: 700;
+        line-height: 1.25;
+        color: #0f172a;
+        word-break: break-word;
+        overflow-wrap: break-word;
+      }
+      .sig-sub {
+        font-size: 10px;
+        font-weight: 500;
+        color: #475569;
+        margin-top: 2px;
+        line-height: 1.2;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cabecalho Institucional SAAB 3.2.1 Oficina Ipiranga -->
+  <header class="gov-bar">
+    <div class="gov-bar-content">
+      <div class="gov-badge-row">
+        <span class="gov-badge">Setor Oficial de Frota</span>
+        <span class="gov-badge-sec">Controle Operacional de Manutenção</span>
+      </div>
+      <h1 class="gov-title">SAAB 3.2.1 Oficina Ipiranga</h1>
+      <div class="gov-subtitle">Plano de Vistoria de Veículo</div>
+      <p class="gov-desc">Checklist técnico, inspeção de itens obrigatórios e mapeamento fotográfico de danos da frota</p>
+    </div>
+  </header>
+
+  <main class="main-wrapper">
+
+    <!-- Indicador de funcionamento estavel para celular Android / Chrome -->
+    <div class="info-callout no-print">
+      <span style="font-size:1.1rem;">📱</span>
+      <span><strong>Fotos Reais dos Veículos:</strong> As 4 vistas carregam as fotos reais dos veículos da frota oficial. Silhuetas ilustrativas são mantidas exclusivamente como reserva automática caso ocorra falha de rede.</span>
+    </div>
+
+    <!-- Guia de Orientacao Como Usar no Celular -->
+    <details class="help-accordion no-print">
+      <summary class="help-summary">
+        <span>📖 Guia Rapido: Como usar este app e salvar relatorios no celular</span>
+        <span style="font-size:1.2rem; color:var(--accent);">▾</span>
+      </summary>
+      <div class="help-content">
+        <div class="help-step-card">
+          <div class="help-step-head">
+            <span class="help-step-badge">1</span>
+            <span>Adicionar a Tela Inicial</span>
+          </div>
+          <div class="help-step-body">
+            <strong>No Android (Chrome):</strong>
+            <ol>
+              <li>Toque no menu de 3 pontinhos no canto superior direito.</li>
+              <li>Selecione <strong>"Adicionar a tela inicial"</strong>.</li>
+            </ol>
+            <div style="margin-top:6px;">
+              <strong>No iPhone / iPad (Safari):</strong>
+              <ol>
+                <li>Toque no icone de <strong>Compartilhar</strong> (quadrado com seta).</li>
+                <li>Selecione <strong>"Adicionar a Tela de Inicio"</strong>.</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+
+        <div class="help-step-card">
+          <div class="help-step-head">
+            <span class="help-step-badge">2</span>
+            <span>Exportar Relatorio em Arquivo</span>
+          </div>
+          <div class="help-step-body">
+            <ol>
+              <li>Preencha a vistoria com dados, marcacao de itens S/N e fotos de danos.</li>
+              <li>Toque no botao <strong>"Exportar Relatorio (Arquivo)"</strong> na barra superior.</li>
+              <li>O relatorio completo com fotos e assinaturas sera baixado para a pasta <strong>Downloads</strong> do seu celular.</li>
+              <li>Voce tambem pode clicar em <strong>"Salvar como PDF"</strong> e escolher o destino no leitor.</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="help-step-card">
+          <div class="help-step-head">
+            <span class="help-step-badge">3</span>
+            <span>Organizar na Pasta "Vistorias"</span>
+          </div>
+          <div class="help-step-body">
+            <ol>
+              <li>Abra o gerenciador de arquivos do aparelho (ex: <strong>"Meus Arquivos"</strong> ou <strong>"Arquivos"</strong>).</li>
+              <li>Localize o arquivo baixado (ex: <code>vistoria_BRA2E19_[data].html</code>).</li>
+              <li>Mova o arquivo para a pasta de vistorias da Oficina Ipiranga.</li>
+              <li>O arquivo pode ser visualizado a qualquer momento ou enviado pelo WhatsApp.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- Top Action Toolbar & Stats -->
+    <div class="top-actions-card no-print">
+      <div>
+        <strong style="color:var(--navy-900); font-size:1.05rem;">Vistoria Operacional : Frota Ipiranga</strong>
+        <div style="font-size:0.8rem; color:var(--text-muted);">Registro completo com fotos, apontamento de avarias e emissão de laudo</div>
+      </div>
+      <div class="action-group">
+        <button type="button" class="app-btn app-btn-outline" id="btnInstalarApp" title="Adicionar o aplicativo à tela inicial do celular">
+          📲 Instalar App
+        </button>
+        <button type="button" class="app-btn app-btn-outline" id="btnCarregarExemplo">
+          Carregar Exemplo
+        </button>
+        <button type="button" class="app-btn app-btn-danger" id="btnLimpar">
+          Limpar
+        </button>
+        <button type="button" class="app-btn app-btn-outline" id="btnExportarArquivo" title="Salva o relatório completo em arquivo HTML na pasta Downloads">
+          💾 Exportar Relatório (Arquivo)
+        </button>
+        <button type="button" class="app-btn app-btn-navy" id="btnSalvarPdf" title="Abre a visualização para salvar como arquivo PDF">
+          📄 Salvar como PDF
+        </button>
+        <button type="button" class="app-btn app-btn-navy" id="btnImprimir">
+          Imprimir
+        </button>
+        <button type="button" class="app-btn app-btn-primary" id="btnSalvar">
+          Salvar no Aparelho
+        </button>
+      </div>
+    </div>
+
+    <!-- SECAO MODELO DO VEICULO (FROTA) -->
+    <section class="fleet-card no-print">
+      <div class="section-header" style="margin-bottom:12px;">
+        <h2 class="section-title">
+          <span class="section-title-num">★</span>
+          Modelo do Veículo (Frota)
+        </h2>
+        <span style="font-size:0.8rem; color:var(--text-muted); font-weight:600;">Selecione para carregar a foto ou silhueta correspondente</span>
+      </div>
+
+      <div class="fleet-layout">
+        <div class="fleet-select-col">
+          <div class="form-group">
+            <label class="form-label" for="selModeloFrota">Modelo de Veículo da Frota</label>
+            <select id="selModeloFrota" class="fleet-select">
+              <option value="VW 812">VW 812 (Caminhão VUC)</option>
+              <option value="Ford 816">Ford 816 (Caminhão Médio)</option>
+              <option value="Hilux SW4">Hilux SW4 (SUV / Picape)</option>
+              <option value="Accord">Accord (Sedã)</option>
+              <option value="Fiat Doblô">Fiat Doblô (Minivan / Furgão)</option>
+              <option value="Spin">Spin (Minivan)</option>
+              <option value="Kombi Karat">Kombi Karat (Van / Kombi)</option>
+              <option value="Corolla">Corolla (Sedã)</option>
+              <option value="Outro">Outro (informar manualmente)</option>
+            </select>
+          </div>
+
+          <div class="form-group" id="groupModeloOutro" style="display:none;">
+            <label class="form-label" for="inpModeloOutro">Nome do Modelo Personalizado</label>
+            <input type="text" id="inpModeloOutro" class="form-input" placeholder="Digite a marca e modelo do veículo">
+          </div>
+
+          <div style="font-size:0.82rem; color:var(--text-muted); line-height:1.4;">
+            O modelo selecionado preenche automaticamente o campo <strong>Marca / Modelo</strong> da vistoria e insere a foto real ou silhueta ilustrativa no cabeçalho do relatório impresso.
+          </div>
+        </div>
+
+        <div class="fleet-preview-col">
+          <div class="fleet-preview-svg-container" id="fleetSvgBox">
+            <!-- Injected by JavaScript -->
+          </div>
+          <div class="fleet-type-badge" id="fleetTypeBadge">Caminhão VUC</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Progress Status Bar -->
+    <div class="progress-box no-print">
+      <div class="progress-item">
+        <div class="progress-item-label">
+          <span>Itens de Vistoria Respondidos</span>
+          <span id="itemsProgressLabel">0 de 10</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-bar" id="itemsProgressBar"></div>
+        </div>
+      </div>
+      <div class="progress-item">
+        <div class="progress-item-label">
+          <span>Fotos Carregadas</span>
+          <span id="photosProgressLabel">0 de 4</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-bar" id="photosProgressBar"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="appFormSection">
+      <!-- 1. IDENTIFICAÇÃO DO VEÍCULO E MOTORISTA -->
+      <section class="section-card">
+        <div class="section-header">
+          <h2 class="section-title">
+            <span class="section-title-num">1</span>
+            Identificação do Veículo e Responsáveis
+          </h2>
+        </div>
+
+        <div class="grid-2col">
+          <div class="form-group">
+            <label class="form-label" for="inpMarcaModelo">Marca / Modelo do Veículo</label>
+            <input type="text" id="inpMarcaModelo" class="form-input" placeholder="Ex: Caminhão VUC VW 812" style="font-weight:700; color:var(--navy-900);">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="inpPlacas">Placas do Veículo</label>
+            <input type="text" id="inpPlacas" class="form-input" placeholder="Ex: BRA2E19" style="text-transform:uppercase; font-weight:700;">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="inpAgente">Agente / Motorista APPA</label>
+            <input type="text" id="inpAgente" class="form-input" placeholder="Nome completo do motorista">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="inpKm">KM Atual</label>
+            <input type="number" id="inpKm" class="form-input" placeholder="Ex: 84250">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Nível de Combustível</label>
+            <div class="fuel-selector" id="fuelSelector">
+              <button type="button" class="fuel-btn" data-fuel="R">R</button>
+              <button type="button" class="fuel-btn" data-fuel="1/4">1/4</button>
+              <button type="button" class="fuel-btn" data-fuel="1/2">1/2</button>
+              <button type="button" class="fuel-btn" data-fuel="3/4">3/4</button>
+              <button type="button" class="fuel-btn" data-fuel="C">C</button>
+            </div>
+            <input type="hidden" id="inpCombustivel" value="">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="inpVistoriadoPor">Vistoriado por</label>
+            <input type="text" id="inpVistoriadoPor" class="form-input" placeholder="Nome do vistoriador responsável">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="inpData">Data da Vistoria</label>
+            <input type="date" id="inpData" class="form-input">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="inpPatrimonio">Patrimônio</label>
+            <input type="text" id="inpPatrimonio" class="form-input" placeholder="Número de tombamento / patrimônio">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="inpGaragem">Garagem</label>
+            <input type="text" id="inpGaragem" class="form-input" placeholder="Local da garagem ou pátio Oficina Ipiranga">
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. ITENS DE VISTORIA COM RESPOSTA S/N -->
+      <section class="section-card">
+        <div class="section-header">
+          <h2 class="section-title">
+            <span class="section-title-num">2</span>
+            Itens Obrigatórios de Vistoria (S/N)
+          </h2>
+          <span style="font-size:0.8rem; color:var(--text-muted); font-weight:600;">S = Sim / Conforme | N = Não / Irregular</span>
+        </div>
+
+        <div class="inspection-grid" id="inspectionItemsGrid">
+          <!-- Populated by JS for reliability -->
+        </div>
+      </section>
+
+      <!-- 3. FOTOS DO VEÍCULO COM MARCAÇÃO DE ACIDENTES -->
+      <section class="section-card">
+        <div class="section-header">
+          <h2 class="section-title">
+            <span class="section-title-num">3</span>
+            Fotos do Veículo e Marcação de Danos
+          </h2>
+        </div>
+        <div class="photo-guidance-card">
+          Ao selecionar o modelo da frota, o veículo de referência aparece nas 4 vistas para marcação de avarias. Toque na imagem para apontar o local exato do dano ou use "Substituir por foto real" para tirar foto com a câmera do celular.
+        </div>
+
+        <div class="photo-grid">
+          <!-- Dianteira -->
+          <div class="photo-card" data-side="dianteira">
+            <div class="photo-card-head">
+              <span class="photo-card-title">1. Dianteira</span>
+              <div class="photo-head-actions">
+                <label class="photo-upload-label" title="Carregar foto real deste lado">
+                  Substituir por foto real
+                  <input type="file" accept="image/*" class="photo-file-input" style="display:none;" data-side="dianteira">
+                </label>
+                <button type="button" class="photo-clear-btn" data-side="dianteira" title="Limpar imagem desta vista">Limpar</button>
+              </div>
+            </div>
+            <div class="photo-stage-wrapper" id="stage-dianteira" data-side="dianteira">
+              <span class="photo-click-hint">Toque para marcar dano</span>
+              <img id="img-dianteira" alt="Dianteira do veículo" src="" onerror="handleImgError(this, 'dianteira')">
+            </div>
+            <div class="photo-pins-list" id="pins-list-dianteira">
+              <div class="photo-pins-title">
+                <span>Danos / Acidentes Registrados</span>
+                <span class="pin-count-badge" id="count-dianteira">0</span>
+              </div>
+              <div class="pins-container" id="container-dianteira">
+                <p class="empty-pins-msg">Nenhum dano marcado nesta foto.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Traseira -->
+          <div class="photo-card" data-side="traseira">
+            <div class="photo-card-head">
+              <span class="photo-card-title">2. Traseira</span>
+              <div class="photo-head-actions">
+                <label class="photo-upload-label" title="Carregar foto real deste lado">
+                  Substituir por foto real
+                  <input type="file" accept="image/*" class="photo-file-input" style="display:none;" data-side="traseira">
+                </label>
+                <button type="button" class="photo-clear-btn" data-side="traseira" title="Limpar imagem desta vista">Limpar</button>
+              </div>
+            </div>
+            <div class="photo-stage-wrapper" id="stage-traseira" data-side="traseira">
+              <span class="photo-click-hint">Toque para marcar dano</span>
+              <img id="img-traseira" alt="Traseira do veículo" src="" onerror="handleImgError(this, 'traseira')">
+            </div>
+            <div class="photo-pins-list" id="pins-list-traseira">
+              <div class="photo-pins-title">
+                <span>Danos / Acidentes Registrados</span>
+                <span class="pin-count-badge" id="count-traseira">0</span>
+              </div>
+              <div class="pins-container" id="container-traseira">
+                <p class="empty-pins-msg">Nenhum dano marcado nesta foto.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lateral Esquerda -->
+          <div class="photo-card" data-side="lat_esq">
+            <div class="photo-card-head">
+              <span class="photo-card-title">3. Lateral Esquerda (Motorista)</span>
+              <div class="photo-head-actions">
+                <label class="photo-upload-label" title="Carregar foto real deste lado">
+                  Substituir por foto real
+                  <input type="file" accept="image/*" class="photo-file-input" style="display:none;" data-side="lat_esq">
+                </label>
+                <button type="button" class="photo-clear-btn" data-side="lat_esq" title="Limpar imagem desta vista">Limpar</button>
+              </div>
+            </div>
+            <div class="photo-stage-wrapper" id="stage-lat_esq" data-side="lat_esq">
+              <span class="photo-click-hint">Toque para marcar dano</span>
+              <img id="img-lat_esq" alt="Lateral Esquerda do veículo" src="" onerror="handleImgError(this, 'lat_esq')">
+            </div>
+            <div class="photo-pins-list" id="pins-list-lat_esq">
+              <div class="photo-pins-title">
+                <span>Danos / Acidentes Registrados</span>
+                <span class="pin-count-badge" id="count-lat_esq">0</span>
+              </div>
+              <div class="pins-container" id="container-lat_esq">
+                <p class="empty-pins-msg">Nenhum dano marcado nesta foto.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lateral Direita -->
+          <div class="photo-card" data-side="lat_dir">
+            <div class="photo-card-head">
+              <span class="photo-card-title">4. Lateral Direita (Passageiro)</span>
+              <div class="photo-head-actions">
+                <label class="photo-upload-label" title="Carregar foto real deste lado">
+                  Substituir por foto real
+                  <input type="file" accept="image/*" class="photo-file-input" style="display:none;" data-side="lat_dir">
+                </label>
+                <button type="button" class="photo-clear-btn" data-side="lat_dir" title="Limpar imagem desta vista">Limpar</button>
+              </div>
+            </div>
+            <div class="photo-stage-wrapper" id="stage-lat_dir" data-side="lat_dir">
+              <span class="photo-click-hint">Toque para marcar dano</span>
+              <img id="img-lat_dir" alt="Lateral Direita do veículo" src="" onerror="handleImgError(this, 'lat_dir')">
+            </div>
+            <div class="photo-pins-list" id="pins-list-lat_dir">
+              <div class="photo-pins-title">
+                <span>Danos / Acidentes Registrados</span>
+                <span class="pin-count-badge" id="count-lat_dir">0</span>
+              </div>
+              <div class="pins-container" id="container-lat_dir">
+                <p class="empty-pins-msg">Nenhum dano marcado nesta foto.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. OBSERVAÇÃO GERAL -->
+      <section class="section-card">
+        <div class="section-header">
+          <h2 class="section-title">
+            <span class="section-title-num">4</span>
+            Observação Geral
+          </h2>
+        </div>
+        <div class="form-group">
+          <textarea id="inpObservacao" class="form-input form-textarea" placeholder="Descreva aqui quaisquer observações gerais sobre a mecânica, estofamento, histórico do veículo, viagens previstas ou outras irregularidades..."></textarea>
+        </div>
+      </section>
+
+      <!-- 5. HISTÓRICO DE VISTORIAS SALVAS -->
+      <section class="section-card history-card no-print">
+        <div class="section-header">
+          <h2 class="section-title">
+            <span class="section-title-num">5</span>
+            Histórico de Vistorias Salvas (Neste Navegador)
+          </h2>
+        </div>
+        <div style="overflow-x:auto;">
+          <table class="history-table" id="historyTable">
+            <thead>
+              <tr>
+                <th>Data</th>
+                <th>Placa</th>
+                <th>Motorista</th>
+                <th>Vistoriador</th>
+                <th>KM</th>
+                <th>Danos</th>
+                <th style="text-align:right;">Ações</th>
+              </tr>
+            </thead>
+            <tbody id="historyTableBody">
+              <tr>
+                <td colspan="7" style="text-align:center; color:#94a3b8; padding:20px;">Nenhuma vistoria salva anteriormente.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <!-- Print Report Layout Container -->
+    <div id="printReportArea">
+      <!-- Populated dynamically when user prints or clicks Generate Report -->
+    </div>
+
+  </main>
+
+  <!-- Toast notification for export and download info -->
+  <div class="toast-notice" id="toastNotice" role="status" aria-live="polite">
+    <div class="toast-icon">✓</div>
+    <div class="toast-text" id="toastMessage">
+      Arquivo salvo com sucesso na pasta <strong>Downloads</strong> do seu celular.
+    </div>
+  </div>
+
+  <!-- Modal de Orientação para Instalação PWA -->
+  <div class="modal-backdrop" id="installModal">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h3 class="modal-title">Instalar App na Tela Inicial</h3>
+        <button type="button" class="modal-close-btn" id="btnInstallModalClose">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:8px;">
+          <img src="https://generated-images.adapta.one/jemiguel2016%40gmail.com/01a0aff5-9b4a-73ec-8d31-3afe9aa3bd53/2026-10-01T22-23-50-229Z_Original_user_intent_A_modern_flat_app_icon_for_a.png" alt="Ícone Vistoria" style="width:52px; height:52px; border-radius:12px; border:2px solid #0F2A4A; flex-shrink:0;">
+          <div>
+            <strong style="color:var(--navy-900); font-size:1rem; display:block;">Plano de Vistoria</strong>
+            <span style="font-size:0.8rem; color:var(--text-muted);">SAAB 3.2.1 Oficina Ipiranga</span>
+          </div>
+        </div>
+        <div style="background:#f1f5f9; padding:12px; border-radius:8px; font-size:0.85rem; line-height:1.5;">
+          <strong>No Android (Chrome):</strong>
+          <div style="margin-top:4px;">1. Toque no menu de 3 pontinhos no canto superior direito.</div>
+          <div>2. Selecione <strong>"Adicionar à tela inicial"</strong> ou <strong>"Instalar aplicativo"</strong>.</div>
+          <div style="margin-top:10px;"><strong>No iPhone / iPad (Safari):</strong></div>
+          <div style="margin-top:4px;">1. Toque no botão <strong>Compartilhar</strong> (ícone do quadrado com seta para cima).</div>
+          <div>2. Role para baixo e selecione <strong>"Adicionar à Tela de Início"</strong>.</div>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="app-btn app-btn-primary" id="btnInstallModalEntendi">Entendi</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for pin annotation -->
+  <div class="modal-backdrop" id="pinModal">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h3 class="modal-title" id="modalPinTitle">Registrar Dano / Avaria</h3>
+        <button type="button" class="modal-close-btn" id="btnModalClose">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div style="font-size:0.85rem; color:var(--text-muted);">
+          Insira a descrição detalhada do dano na peça ou área apontada:
+        </div>
+        <div class="modal-quick-tags">
+          <button type="button" class="tag-btn" data-tag="Risco profundo">Risco profundo</button>
+          <button type="button" class="tag-btn" data-tag="Amassado com vincos">Amassado com vincos</button>
+          <button type="button" class="tag-btn" data-tag="Trinca / Rachadura">Trinca / Rachadura</button>
+          <button type="button" class="tag-btn" data-tag="Pintura descascada">Pintura descascada</button>
+          <button type="button" class="tag-btn" data-tag="Para-choque quebrado">Para-choque quebrado</button>
+          <button type="button" class="tag-btn" data-tag="Farol avariado">Farol avariado</button>
+          <button type="button" class="tag-btn" data-tag="Retrovisor quebrado">Retrovisor quebrado</button>
+        </div>
+        <textarea id="modalPinText" class="form-input form-textarea" placeholder="Ex: Risco no para-choque dianteiro esquerdo" rows="3"></textarea>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="app-btn app-btn-outline" id="btnModalCancel">Cancelar</button>
+        <button type="button" class="app-btn app-btn-primary" id="btnModalSave">Confirmar Marcador</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Wrapper de armazenamento seguro contra SecurityError (ex: iframe sandbox restrito, about:srcdoc)
+    var memStore = {};
+    var storage = null;
+    try {
+      if (typeof window !== 'undefined' && 'localStorage' in window && window.localStorage) {
+        storage = window.localStorage;
+        storage.setItem('__t', '1');
+        storage.removeItem('__t');
+      }
+    } catch (e) {
+      storage = null;
+    }
+
+    var safeStorage = {
+      isInMemory: function() {
+        return !storage;
+      },
+      getItem: function(k) {
+        if (storage) {
+          try {
+            return storage.getItem(k);
+          } catch (e) {
+            return memStore[k] || null;
+          }
+        }
+        return memStore[k] || null;
+      },
+      setItem: function(k, v) {
+        if (storage) {
+          try {
+            storage.setItem(k, v);
+            return;
+          } catch (e) {
+            storage = null;
+          }
+        }
+        memStore[k] = v;
+      },
+      removeItem: function(k) {
+        if (storage) {
+          try {
+            storage.removeItem(k);
+            return;
+          } catch (e) {
+            storage = null;
+          }
+        }
+        delete memStore[k];
+      }
+    };
+
+    // System definitions and data state
+    const INSPECTION_ITEMS = [
+      { id: 'estepe', label: 'ESTEPE' },
+      { id: 'chave_roda', label: 'CHAVE DE RODA' },
+      { id: 'macaco', label: 'MACACO' },
+      { id: 'triangulo', label: 'TRIÂNGULO' },
+      { id: 'extintor', label: 'EXTINTOR' },
+      { id: 'documentos', label: 'DOCUMENTOS' },
+      { id: 'artesp', label: 'ARTESP' },
+      { id: 'target_pedagio', label: 'TARGET PEDÁGIO' },
+      { id: 'frente_radio', label: 'FRENTE RÁDIO' },
+      { id: 'cmov', label: 'CMOV' }
+    ];
+
+    // Base de URLs externas reais do projeto
+    const ADAPTA_BASE = 'https://generated-images.adapta.one/jemiguel2016%40gmail.com/01a0aff5-9b4a-73ec-8d31-3afe9aa3bd53';
+
+    // Definicoes completas da frota com as fotos reais exatas de cada modelo e cada vista
+    const FLEET_DEFINITIONS = {
+      'VW 812': {
+        type: 'vuc',
+        label: 'Volkswagen Delivery 8.150',
+        photo: `${ADAPTA_BASE}/2026-09-17T19-29-12-363Z_Original_user_intent_Photorealistic_straight_fron.png`,
+        views: {
+          dianteira: `${ADAPTA_BASE}/2026-09-17T19-29-12-363Z_Original_user_intent_Photorealistic_straight_fron.png`,
+          traseira:  `${ADAPTA_BASE}/2026-09-17T19-29-12-334Z_Original_user_intent_Photorealistic_straight_rear.png`,
+          lat_esq:   `${ADAPTA_BASE}/2026-09-17T19-29-01-649Z_Original_user_intent_Photorealistic_straight_left.png`,
+          lat_dir:   `${ADAPTA_BASE}/2026-09-17T19-29-01-264Z_Original_user_intent_Photorealistic_straight_righ.png`
+        },
+        mirrorLatDir: false
+      },
+      'Ford 816': {
+        type: 'caminhao_medio',
+        label: 'Ford Cargo 816',
+        photo: `${ADAPTA_BASE}/2026-09-17T19-29-01-666Z_Original_user_intent_Photorealistic_straight_fron.png`,
+        views: {
+          dianteira: `${ADAPTA_BASE}/2026-09-17T19-29-01-666Z_Original_user_intent_Photorealistic_straight_fron.png`,
+          traseira:  `${ADAPTA_BASE}/2026-09-17T19-31-16-665Z_Original_user_intent_Photorealistic_straight_rear.png`,
+          lat_esq:   `${ADAPTA_BASE}/2026-09-17T19-31-17-959Z_Original_user_intent_Photorealistic_straight_left.png`,
+          lat_dir:   `${ADAPTA_BASE}/2026-09-17T19-31-18-158Z_Original_user_intent_Photorealistic_straight_righ.png`
+        },
+        mirrorLatDir: false
+      },
+      'Hilux SW4': {
+        type: 'picape',
+        label: 'Toyota SW4 Branca',
+        photo: `${ADAPTA_BASE}/2026-09-17T19-44-43-971Z_Original_user_intent_Photorealistic_straight_fron.png`,
+        views: {
+          dianteira: `${ADAPTA_BASE}/2026-09-17T19-44-43-971Z_Original_user_intent_Photorealistic_straight_fron.png`,
+          traseira:  `${ADAPTA_BASE}/2026-09-17T19-44-44-771Z_Original_user_intent_Photorealistic_straight_rear.png`,
+          lat_esq:   `${ADAPTA_BASE}/2026-09-17T19-46-10-972Z_Original_user_intent_Photorealistic_straight_left.png`,
+          lat_dir:   `${ADAPTA_BASE}/2026-09-17T19-46-14-736Z_Original_user_intent_Photorealistic_straight_righ.png`
+        },
+        mirrorLatDir: false
+      },
+      'Accord': {
+        type: 'seda',
+        label: 'Honda Accord Branco',
+        photo: `${ADAPTA_BASE}/2026-09-17T19-43-16-092Z_Original_user_intent_Photorealistic_straight_fron.png`,
+        views: {
+          dianteira: `${ADAPTA_BASE}/2026-09-17T19-43-16-092Z_Original_user_intent_Photorealistic_straight_fron.png`,
+          traseira:  `${ADAPTA_BASE}/2026-09-17T19-44-54-786Z_Original_user_intent_Photorealistic_straight_rear.png`,
+          lat_esq:   `${ADAPTA_BASE}/2026-09-17T19-44-54-988Z_Original_user_intent_Photorealistic_straight_left.png`,
+          lat_dir:   `${ADAPTA_BASE}/2026-09-17T19-44-44-445Z_Original_user_intent_Photorealistic_straight_righ.png`
+        },
+        mirrorLatDir: false
+      },
+      'Fiat Doblô': {
+        type: 'minivan',
+        label: 'Fiat Doblô',
+        photo: `${ADAPTA_BASE}/2026-09-17T19-01-29-307Z_Original_user_intent_Photorealistic_straight_fron.png`,
+        views: {
+          dianteira: `${ADAPTA_BASE}/2026-09-17T19-01-29-307Z_Original_user_intent_Photorealistic_straight_fron.png`,
+          traseira:  `${ADAPTA_BASE}/2026-09-17T19-07-22-412Z_Original_user_intent_Photorealistic_straight_rear.png`,
+          lat_esq:   `${ADAPTA_BASE}/2026-09-17T19-16-59-716Z_Original_user_intent_Photorealistic_straight_left.png`,
+          lat_dir:   `${ADAPTA_BASE}/2026-09-17T19-17-56-171Z_Original_user_intent_Photorealistic_straight_righ.png`
+        },
+        mirrorLatDir: false
+      },
+      'Spin': {
+        type: 'minivan',
+        label: 'Chevrolet Spin Branca',
+        photo: `${ADAPTA_BASE}/2026-09-17T19-43-17-548Z_Original_user_intent_Photorealistic_straight_fron.png`,
+        views: {
+          dianteira: `${ADAPTA_BASE}/2026-09-17T19-43-17-548Z_Original_user_intent_Photorealistic_straight_fron.png`,
+          traseira:  `${ADAPTA_BASE}/2026-09-17T19-43-16-550Z_Original_user_intent_Photorealistic_straight_rear.png`,
+          lat_esq:   `${ADAPTA_BASE}/2026-09-17T19-43-16-348Z_Original_user_intent_Photorealistic_straight_left.png`,
+          lat_dir:   `${ADAPTA_BASE}/2026-09-17T19-43-15-690Z_Original_user_intent_Photorealistic_straight_righ.png`
+        },
+        mirrorLatDir: false
+      },
+      'Kombi Karat': {
+        type: 'van',
+        label: 'Kombi Karat',
+        // Versoes ampliadas com zoom aprovadas, 4:3
+        photo: `${ADAPTA_BASE}/2026-09-17T22-47-01-469Z_Original_user_intent_Tool_generated_image_directi.png`,
+        views: {
+          dianteira: `${ADAPTA_BASE}/2026-09-17T22-47-01-469Z_Original_user_intent_Tool_generated_image_directi.png`,
+          traseira:  `${ADAPTA_BASE}/2026-09-17T22-47-02-008Z_Original_user_intent_Tool_generated_image_directi.png`,
+          lat_esq:   `${ADAPTA_BASE}/2026-09-17T19-17-57-250Z_Original_user_intent_Photorealistic_straight_left.png`,
+          lat_dir:   `${ADAPTA_BASE}/2026-09-17T19-17-57-250Z_Original_user_intent_Photorealistic_straight_left.png`
+        },
+        mirrorLatDir: true
+      },
+      'Corolla': {
+        type: 'seda',
+        label: 'Toyota Corolla Branco',
+        photo: `${ADAPTA_BASE}/2026-09-17T19-01-31-168Z_Original_user_intent_Photorealistic_straight_fron.png`,
+        views: {
+          dianteira: `${ADAPTA_BASE}/2026-09-17T19-01-31-168Z_Original_user_intent_Photorealistic_straight_fron.png`,
+          traseira:  `${ADAPTA_BASE}/2026-09-17T19-07-20-262Z_Original_user_intent_Photorealistic_straight_rear.png`,
+          lat_esq:   `${ADAPTA_BASE}/2026-09-17T19-16-58-519Z_Original_user_intent_Photorealistic_straight_left.png`,
+          lat_dir:   `${ADAPTA_BASE}/2026-09-17T19-17-57-390Z_Original_user_intent_Photorealistic_straight_righ.png`
+        },
+        mirrorLatDir: false
+      },
+      'Outro': {
+        type: 'outro',
+        label: 'Outro Veículo',
+        photo: `${ADAPTA_BASE}/2026-09-17T19-01-31-168Z_Original_user_intent_Photorealistic_straight_fron.png`,
+        views: {
+          dianteira: `${ADAPTA_BASE}/2026-09-17T19-01-31-168Z_Original_user_intent_Photorealistic_straight_fron.png`,
+          traseira:  `${ADAPTA_BASE}/2026-09-17T19-07-20-262Z_Original_user_intent_Photorealistic_straight_rear.png`,
+          lat_esq:   `${ADAPTA_BASE}/2026-09-17T19-16-58-519Z_Original_user_intent_Photorealistic_straight_left.png`,
+          lat_dir:   `${ADAPTA_BASE}/2026-09-17T19-17-57-390Z_Original_user_intent_Photorealistic_straight_righ.png`
+        },
+        mirrorLatDir: false
+      }
+    };
+
+    const DEFAULT_IMAGES = {
+      dianteira: `${ADAPTA_BASE}/2026-09-17T19-29-12-363Z_Original_user_intent_Photorealistic_straight_fron.png`,
+      traseira:  `${ADAPTA_BASE}/2026-09-17T19-29-12-334Z_Original_user_intent_Photorealistic_straight_rear.png`,
+      lat_esq:   `${ADAPTA_BASE}/2026-09-17T19-29-01-649Z_Original_user_intent_Photorealistic_straight_left.png`,
+      lat_dir:   `${ADAPTA_BASE}/2026-09-17T19-29-01-264Z_Original_user_intent_Photorealistic_straight_righ.png`
+    };
+
+    // Silhuetas em SVG puro inline para o painel de selecao da frota
+    const SILHOUETTES = {
+      vuc: `<svg viewBox="0 0 260 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 20 82 L 20 40 Q 20 28 32 28 L 68 28 L 74 38 L 74 82 Z" fill="#93c5fd" opacity="0.95"/>
+        <path d="M 26 36 L 62 36 L 68 52 L 26 52 Z" fill="#0a1e3b"/>
+        <rect x="78" y="24" width="162" height="58" rx="3" fill="#cbd5e1"/>
+        <line x1="120" y1="24" x2="120" y2="82" stroke="#64748b" stroke-width="2"/>
+        <line x1="162" y1="24" x2="162" y2="82" stroke="#64748b" stroke-width="2"/>
+        <line x1="204" y1="24" x2="204" y2="82" stroke="#64748b" stroke-width="2"/>
+        <rect x="14" y="82" width="232" height="7" rx="2" fill="#334155"/>
+        <circle cx="52" cy="88" r="14" fill="#0f172a" stroke="#cbd5e1" stroke-width="3"/>
+        <circle cx="52" cy="88" r="6" fill="#64748b"/>
+        <circle cx="204" cy="88" r="14" fill="#0f172a" stroke="#cbd5e1" stroke-width="3"/>
+        <circle cx="204" cy="88" r="6" fill="#64748b"/>
+      </svg>`,
+      caminhao_medio: `<svg viewBox="0 0 260 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 18 82 L 18 36 Q 18 24 30 24 L 72 24 L 80 36 L 80 82 Z" fill="#bfdbfe" opacity="0.95"/>
+        <path d="M 24 32 L 66 32 L 72 50 L 24 50 Z" fill="#0a1e3b"/>
+        <rect x="84" y="20" width="158" height="62" rx="3" fill="#94a3b8"/>
+        <line x1="130" y1="20" x2="130" y2="82" stroke="#475569" stroke-width="2"/>
+        <line x1="180" y1="20" x2="180" y2="82" stroke="#475569" stroke-width="2"/>
+        <rect x="12" y="82" width="236" height="8" rx="2" fill="#1e293b"/>
+        <circle cx="54" cy="88" r="15" fill="#0f172a" stroke="#cbd5e1" stroke-width="3"/>
+        <circle cx="54" cy="88" r="6" fill="#64748b"/>
+        <circle cx="202" cy="88" r="15" fill="#0f172a" stroke="#cbd5e1" stroke-width="3"/>
+        <circle cx="202" cy="88" r="6" fill="#64748b"/>
+      </svg>`,
+      picape: `<svg viewBox="0 0 260 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 16 80 L 20 62 L 68 58 L 98 34 L 168 34 L 176 58 L 244 60 L 246 80 Z" fill="#93c5fd" opacity="0.95"/>
+        <path d="M 74 56 L 98 38 L 130 38 L 130 56 Z" fill="#0a1e3b"/>
+        <path d="M 136 38 L 164 38 L 172 56 L 136 56 Z" fill="#0a1e3b"/>
+        <line x1="174" y1="38" x2="190" y2="58" stroke="#f97316" stroke-width="3" stroke-linecap="round"/>
+        <rect x="96" y="80" width="76" height="4" rx="2" fill="#475569"/>
+        <circle cx="58" cy="85" r="16" fill="#0f172a" stroke="#cbd5e1" stroke-width="3.5"/>
+        <circle cx="210" cy="85" r="16" fill="#0f172a" stroke="#cbd5e1" stroke-width="3.5"/>
+      </svg>`,
+      seda: `<svg viewBox="0 0 260 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 14 80 L 18 66 L 58 64 L 94 40 L 174 40 L 208 64 L 246 66 L 248 80 Z" fill="#93c5fd" opacity="0.95"/>
+        <path d="M 64 62 L 96 44 L 132 44 L 132 62 Z" fill="#0a1e3b"/>
+        <path d="M 138 44 L 172 44 L 202 62 L 138 62 Z" fill="#0a1e3b"/>
+        <circle cx="56" cy="84" r="14" fill="#0f172a" stroke="#cbd5e1" stroke-width="3"/>
+        <circle cx="204" cy="84" r="14" fill="#0f172a" stroke="#cbd5e1" stroke-width="3"/>
+      </svg>`,
+      minivan: `<svg viewBox="0 0 260 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 20 82 L 22 66 L 52 56 L 82 34 L 218 34 L 232 46 L 236 82 Z" fill="#93c5fd" opacity="0.95"/>
+        <path d="M 56 56 L 82 38 L 126 38 L 126 56 Z" fill="#0a1e3b"/>
+        <path d="M 132 38 L 178 38 L 178 56 L 132 56 Z" fill="#0a1e3b"/>
+        <path d="M 184 38 L 216 38 L 224 56 L 184 56 Z" fill="#0a1e3b"/>
+        <circle cx="56" cy="85" r="14" fill="#0f172a" stroke="#cbd5e1" stroke-width="3"/>
+        <circle cx="204" cy="85" r="14" fill="#0f172a" stroke="#cbd5e1" stroke-width="3"/>
+      </svg>`,
+      van: `<svg viewBox="0 0 260 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 24 82 L 24 50 Q 24 32 44 32 L 224 32 Q 236 32 236 50 L 236 82 Z" fill="#93c5fd" opacity="0.95"/>
+        <path d="M 30 38 L 60 38 L 60 56 L 30 56 Z" fill="#0a1e3b"/>
+        <path d="M 68 38 L 116 38 L 116 56 L 68 56 Z" fill="#0a1e3b"/>
+        <path d="M 124 38 L 172 38 L 172 56 L 124 56 Z" fill="#0a1e3b"/>
+        <path d="M 180 38 L 228 38 L 228 56 L 180 56 Z" fill="#0a1e3b"/>
+        <circle cx="62" cy="85" r="14" fill="#0f172a" stroke="#cbd5e1" stroke-width="3"/>
+        <circle cx="196" cy="85" r="14" fill="#0f172a" stroke="#cbd5e1" stroke-width="3"/>
+      </svg>`,
+      outro: `<svg viewBox="0 0 260 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 20 80 L 26 64 L 66 60 L 98 38 L 168 38 L 198 60 L 238 64 L 242 80 Z" fill="#93c5fd" opacity="0.9"/>
+        <path d="M 72 58 L 100 42 L 130 42 L 130 58 Z" fill="#0a1e3b"/>
+        <path d="M 136 42 L 166 42 L 192 58 L 136 58 Z" fill="#0a1e3b"/>
+        <circle cx="60" cy="84" r="14" fill="#0f172a" stroke="#cbd5e1" stroke-width="3"/>
+        <circle cx="202" cy="84" r="14" fill="#0f172a" stroke="#cbd5e1" stroke-width="3"/>
+      </svg>`
+    };
+
+    const SIDES = ['dianteira', 'traseira', 'lat_esq', 'lat_dir'];
+
+    // Gerador de Silhuetas SVG de Reserva completas por tipo de veiculo e por vista (4 vistas)
+    // 100% inline, zero dependencia externa, garantindo que o celular Android NUNCA fique em branco.
+    function getFallbackVehicleSvg(type, side, labelText = '') {
+      const sideName = side === 'dianteira' ? 'DIANTEIRA' :
+                       side === 'traseira'  ? 'TRASEIRA' :
+                       side === 'lat_esq'   ? 'LATERAL ESQUERDA' : 'LATERAL DIREITA';
+      
+      const badgeDesc = labelText ? `[ ${labelText.toUpperCase()} : ${sideName} ]` : `[ ${sideName} ]`;
+      const isMirrored = side === 'lat_dir';
+
+      let innerGraphics = '';
+
+      if (side === 'dianteira') {
+        if (type === 'vuc' || type === 'caminhao_medio') {
+          innerGraphics = `
+            <!-- Cabine Caminhao Frente -->
+            <rect x="140" y="45" width="320" height="235" rx="14" fill="#1e293b" stroke="#38bdf8" stroke-width="3"/>
+            <!-- Parabrisa Reto -->
+            <rect x="165" y="65" width="270" height="95" rx="6" fill="#0a1e3b" stroke="#60a5fa" stroke-width="2"/>
+            <line x1="300" y1="65" x2="300" y2="160" stroke="#38bdf8" stroke-width="2" opacity="0.6"/>
+            <!-- Retrovisores altos -->
+            <rect x="115" y="80" width="18" height="50" rx="4" fill="#0f172a" stroke="#cbd5e1" stroke-width="2"/>
+            <rect x="467" y="80" width="18" height="50" rx="4" fill="#0f172a" stroke="#cbd5e1" stroke-width="2"/>
+            <!-- Grade Dianteira Robusta -->
+            <rect x="175" y="175" width="250" height="50" rx="6" fill="#0f172a" stroke="#64748b" stroke-width="2"/>
+            <line x1="185" y1="190" x2="415" y2="190" stroke="#f97316" stroke-width="3"/>
+            <line x1="185" y1="202" x2="415" y2="202" stroke="#cbd5e1" stroke-width="2"/>
+            <line x1="185" y1="214" x2="415" y2="214" stroke="#cbd5e1" stroke-width="2"/>
+            <!-- Farois Dianteiros Quadrados -->
+            <rect x="150" y="180" width="20" height="40" rx="4" fill="#fef08a" stroke="#cbd5e1" stroke-width="1.5"/>
+            <rect x="430" y="180" width="20" height="40" rx="4" fill="#fef08a" stroke="#cbd5e1" stroke-width="1.5"/>
+            <!-- Parachoque de Aco -->
+            <rect x="120" y="240" width="360" height="35" rx="6" fill="#334155" stroke="#94a3b8" stroke-width="2"/>
+            <!-- Placa central -->
+            <rect x="250" y="246" width="100" height="22" rx="3" fill="#ffffff" stroke="#0f172a" stroke-width="1"/>
+            <text x="300" y="261" font-family="sans-serif" font-size="11" font-weight="800" fill="#0a1e3b" text-anchor="middle">BRASIL</text>
+            <!-- Rodas dianteiras visiveis sob cabine -->
+            <rect x="125" y="275" width="35" height="35" rx="4" fill="#0f172a"/>
+            <rect x="440" y="275" width="35" height="35" rx="4" fill="#0f172a"/>
+          `;
+        } else if (type === 'van') {
+          innerGraphics = `
+            <!-- Kombi / Van Frente Arredondada -->
+            <path d="M 150 265 L 150 110 Q 150 50 300 50 Q 450 50 450 110 L 450 265 Z" fill="#1e293b" stroke="#38bdf8" stroke-width="3"/>
+            <!-- Vidro bipartido ou panoramico -->
+            <path d="M 175 125 Q 300 110 425 125 L 420 75 Q 300 65 180 75 Z" fill="#0a1e3b" stroke="#60a5fa" stroke-width="2"/>
+            <line x1="300" y1="68" x2="300" y2="120" stroke="#38bdf8" stroke-width="2"/>
+            <!-- Farois redondos classicos -->
+            <circle cx="190" cy="180" r="22" fill="#fef08a" stroke="#ffffff" stroke-width="3"/>
+            <circle cx="410" cy="180" r="22" fill="#fef08a" stroke="#ffffff" stroke-width="3"/>
+            <!-- Emblema central -->
+            <circle cx="300" cy="180" r="26" fill="#f97316" stroke="#ffffff" stroke-width="3"/>
+            <!-- Parachoque curvo -->
+            <rect x="135" y="240" width="330" height="30" rx="8" fill="#e2e8f0" stroke="#64748b" stroke-width="2"/>
+            <rect x="250" y="244" width="100" height="22" rx="3" fill="#ffffff"/>
+            <text x="300" y="259" font-family="sans-serif" font-size="11" font-weight="800" fill="#0a1e3b" text-anchor="middle">PLACA</text>
+          `;
+        } else if (type === 'picape') {
+          innerGraphics = `
+            <!-- SUV / Picape Frente Alta e Larga -->
+            <path d="M 130 270 L 140 160 L 180 85 L 420 85 L 460 160 L 470 270 Z" fill="#1e293b" stroke="#38bdf8" stroke-width="3"/>
+            <polygon points="190,92 410,92 445,155 155,155" fill="#0a1e3b" stroke="#60a5fa" stroke-width="2"/>
+            <!-- Grade robusta SUV -->
+            <rect x="175" y="165" width="250" height="55" rx="6" fill="#0f172a" stroke="#ea580c" stroke-width="3"/>
+            <line x1="185" y1="185" x2="415" y2="185" stroke="#94a3b8" stroke-width="3"/>
+            <line x1="185" y1="200" x2="415" y2="200" stroke="#94a3b8" stroke-width="3"/>
+            <!-- Farois modernos agressivos -->
+            <polygon points="142,165 170,165 165,195 138,185" fill="#fef08a" stroke="#ffffff" stroke-width="1.5"/>
+            <polygon points="458,165 430,165 435,195 462,185" fill="#fef08a" stroke="#ffffff" stroke-width="1.5"/>
+            <!-- Parachoque off-road elevado -->
+            <rect x="125" y="235" width="350" height="40" rx="6" fill="#334155" stroke="#64748b" stroke-width="2"/>
+            <rect x="250" y="244" width="100" height="22" rx="3" fill="#ffffff"/>
+            <text x="300" y="259" font-family="sans-serif" font-size="11" font-weight="800" fill="#0a1e3b" text-anchor="middle">BRASIL</text>
+          `;
+        } else {
+          // Seda / Minivan / Carro Frente
+          innerGraphics = `
+            <!-- Seda / Carro Frente Aerodinamica -->
+            <path d="M 120 265 L 135 170 L 185 95 L 415 95 L 465 170 L 480 265 Z" fill="#1e293b" stroke="#38bdf8" stroke-width="3"/>
+            <polygon points="195,102 405,102 450,165 150,165" fill="#0a1e3b" stroke="#60a5fa" stroke-width="2"/>
+            <!-- Capo com vincos -->
+            <line x1="210" y1="170" x2="235" y2="230" stroke="#475569" stroke-width="2"/>
+            <line x1="390" y1="170" x2="365" y2="230" stroke="#475569" stroke-width="2"/>
+            <!-- Grade central -->
+            <path d="M 215 200 L 385 200 L 365 235 L 235 235 Z" fill="#0f172a" stroke="#ea580c" stroke-width="2"/>
+            <!-- Farois afilados -->
+            <polygon points="135,185 205,195 195,220 130,205" fill="#fef08a" stroke="#ffffff" stroke-width="1.5"/>
+            <polygon points="465,185 395,195 405,220 470,205" fill="#fef08a" stroke="#ffffff" stroke-width="1.5"/>
+            <!-- Parachoque envolvente -->
+            <rect x="115" y="240" width="370" height="32" rx="8" fill="#334155" stroke="#64748b" stroke-width="2"/>
+            <rect x="250" y="246" width="100" height="20" rx="3" fill="#ffffff"/>
+            <text x="300" y="260" font-family="sans-serif" font-size="11" font-weight="800" fill="#0a1e3b" text-anchor="middle">BRASIL</text>
+          `;
+        }
+      } else if (side === 'traseira') {
+        if (type === 'vuc' || type === 'caminhao_medio') {
+          innerGraphics = `
+            <!-- Traseira Bau Caminhao -->
+            <rect x="130" y="45" width="340" height="215" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="3"/>
+            <!-- Portas do Bau bipartidas -->
+            <line x1="300" y1="45" x2="300" y2="260" stroke="#64748b" stroke-width="3"/>
+            <!-- Trincos e trancas verticais -->
+            <rect x="210" y="60" width="6" height="180" fill="#94a3b8"/>
+            <rect x="384" y="60" width="6" height="180" fill="#94a3b8"/>
+            <rect x="195" y="145" width="36" height="16" rx="2" fill="#ea580c"/>
+            <rect x="369" y="145" width="36" height="16" rx="2" fill="#ea580c"/>
+            <!-- Lanternas Traseiras Verticais -->
+            <rect x="140" y="200" width="16" height="50" rx="2" fill="#ef4444" stroke="#ffffff" stroke-width="1"/>
+            <rect x="444" y="200" width="16" height="50" rx="2" fill="#ef4444" stroke="#ffffff" stroke-width="1"/>
+            <!-- Parachoque Traseiro com Faixas Refletivas -->
+            <rect x="115" y="265" width="370" height="28" rx="4" fill="#0f172a" stroke="#cbd5e1" stroke-width="2"/>
+            <line x1="120" y1="279" x2="480" y2="279" stroke="#ef4444" stroke-width="8" stroke-dasharray="20,15"/>
+            <!-- Rodas duplas visiveis -->
+            <rect x="130" y="293" width="50" height="18" rx="3" fill="#0f172a"/>
+            <rect x="420" y="293" width="50" height="18" rx="3" fill="#0f172a"/>
+          `;
+        } else {
+          // Traseira de Veiculos leves, SUV, Sedan, Minivan e Kombi
+          innerGraphics = `
+            <path d="M 130 265 L 145 155 L 185 90 L 415 90 L 455 155 L 470 265 Z" fill="#1e293b" stroke="#38bdf8" stroke-width="3"/>
+            <!-- Vidro Traseiro -->
+            <polygon points="195,96 405,96 445,150 155,150" fill="#0a1e3b" stroke="#60a5fa" stroke-width="2"/>
+            <line x1="290" y1="120" x2="310" y2="120" stroke="#f97316" stroke-width="2"/>
+            <!-- Tampa do Portamalas -->
+            <line x1="150" y1="155" x2="450" y2="155" stroke="#475569" stroke-width="2"/>
+            <!-- Lanternas Traseiras Vermelhas -->
+            <polygon points="135,160 195,165 190,205 130,195" fill="#ef4444" stroke="#ffffff" stroke-width="1.5"/>
+            <polygon points="465,160 405,165 410,205 470,195" fill="#ef4444" stroke="#ffffff" stroke-width="1.5"/>
+            <!-- Parachoque Traseiro -->
+            <rect x="120" y="240" width="360" height="35" rx="8" fill="#334155" stroke="#64748b" stroke-width="2"/>
+            <rect x="250" y="246" width="100" height="22" rx="3" fill="#ffffff"/>
+            <text x="300" y="261" font-family="sans-serif" font-size="11" font-weight="800" fill="#0a1e3b" text-anchor="middle">BRASIL</text>
+            <!-- Saida de escapamento -->
+            <ellipse cx="445" cy="278" rx="8" ry="5" fill="#0f172a" stroke="#cbd5e1" stroke-width="1"/>
+          `;
+        }
+      } else {
+        // Laterais (Esquerda ou Direita)
+        const mirrorTransform = isMirrored ? 'transform="translate(600,0) scale(-1,1)"' : '';
+        if (type === 'vuc' || type === 'caminhao_medio') {
+          innerGraphics = `
+            <g ${mirrorTransform}>
+              <!-- Cabine Avancada Lateral -->
+              <path d="M 60 230 L 60 100 Q 60 70 90 70 L 180 70 L 195 95 L 195 230 Z" fill="#1e293b" stroke="#38bdf8" stroke-width="3"/>
+              <!-- Janela da Cabine -->
+              <path d="M 75 85 L 165 85 L 180 135 L 75 135 Z" fill="#0a1e3b" stroke="#60a5fa" stroke-width="2"/>
+              <!-- Bau de Carga Traseiro Longo -->
+              <rect x="205" y="60" width="345" height="170" rx="6" fill="#334155" stroke="#94a3b8" stroke-width="2.5"/>
+              <line x1="320" y1="60" x2="320" y2="230" stroke="#64748b" stroke-width="2"/>
+              <line x1="435" y1="60" x2="435" y2="230" stroke="#64748b" stroke-width="2"/>
+              <!-- Chassi e Parachoque -->
+              <rect x="45" y="230" width="515" height="16" rx="3" fill="#0f172a"/>
+              <!-- Rodas Robustas de Caminhao -->
+              <circle cx="130" cy="245" r="38" fill="#0f172a" stroke="#cbd5e1" stroke-width="6"/>
+              <circle cx="130" cy="245" r="16" fill="#64748b"/>
+              <circle cx="465" cy="245" r="38" fill="#0f172a" stroke="#cbd5e1" stroke-width="6"/>
+              <circle cx="465" cy="245" r="16" fill="#64748b"/>
+            </g>
+          `;
+        } else if (type === 'picape') {
+          innerGraphics = `
+            <g ${mirrorTransform}>
+              <!-- Hilux / Picape Lateral com Cacamba -->
+              <path d="M 45 225 L 55 175 L 165 165 L 235 95 L 390 95 L 410 165 L 545 168 L 550 225 Z" fill="#1e293b" stroke="#38bdf8" stroke-width="3"/>
+              <!-- Janelas Cabine Dupla -->
+              <path d="M 175 160 L 235 105 L 305 105 L 305 160 Z" fill="#0a1e3b" stroke="#60a5fa" stroke-width="2"/>
+              <path d="M 315 105 L 380 105 L 398 160 L 315 160 Z" fill="#0a1e3b" stroke="#60a5fa" stroke-width="2"/>
+              <!-- Santantonio -->
+              <line x1="405" y1="105" x2="445" y2="165" stroke="#f97316" stroke-width="5" stroke-linecap="round"/>
+              <!-- Rodas Altas Todo-Terreno -->
+              <circle cx="135" cy="240" r="38" fill="#0f172a" stroke="#cbd5e1" stroke-width="6"/>
+              <circle cx="135" cy="240" r="16" fill="#64748b"/>
+              <circle cx="465" cy="240" r="38" fill="#0f172a" stroke="#cbd5e1" stroke-width="6"/>
+              <circle cx="465" cy="240" r="16" fill="#64748b"/>
+            </g>
+          `;
+        } else if (type === 'van') {
+          innerGraphics = `
+            <g ${mirrorTransform}>
+              <!-- Kombi / Van Lateral Retangular -->
+              <path d="M 65 230 L 65 140 Q 65 85 110 85 L 510 85 Q 535 85 535 130 L 535 230 Z" fill="#1e293b" stroke="#38bdf8" stroke-width="3"/>
+              <!-- 4 Janelas estilo Van -->
+              <rect x="80" y="100" width="75" height="50" rx="4" fill="#0a1e3b" stroke="#60a5fa" stroke-width="2"/>
+              <rect x="170" y="100" width="105" height="50" rx="4" fill="#0a1e3b" stroke="#60a5fa" stroke-width="2"/>
+              <rect x="290" y="100" width="105" height="50" rx="4" fill="#0a1e3b" stroke="#60a5fa" stroke-width="2"/>
+              <rect x="410" y="100" width="105" height="50" rx="4" fill="#0a1e3b" stroke="#60a5fa" stroke-width="2"/>
+              <!-- Faixa decorativa lateral -->
+              <line x1="65" y1="170" x2="535" y2="170" stroke="#f97316" stroke-width="4"/>
+              <!-- Rodas com calota -->
+              <circle cx="145" cy="240" r="34" fill="#0f172a" stroke="#cbd5e1" stroke-width="5"/>
+              <circle cx="145" cy="240" r="15" fill="#e2e8f0"/>
+              <circle cx="455" cy="240" r="34" fill="#0f172a" stroke="#cbd5e1" stroke-width="5"/>
+              <circle cx="455" cy="240" r="15" fill="#e2e8f0"/>
+            </g>
+          `;
+        } else {
+          // Seda / Minivan / Carro Perfil
+          innerGraphics = `
+            <g ${mirrorTransform}>
+              <path d="M 45 225 L 55 180 L 145 170 L 225 105 L 395 105 L 470 170 L 545 175 L 550 225 Z" fill="#1e293b" stroke="#38bdf8" stroke-width="3"/>
+              <!-- Janelas Aerodinamicas -->
+              <path d="M 160 165 L 230 115 L 305 115 L 305 165 Z" fill="#0a1e3b" stroke="#60a5fa" stroke-width="2"/>
+              <path d="M 315 115 L 390 115 L 455 165 L 315 165 Z" fill="#0a1e3b" stroke="#60a5fa" stroke-width="2"/>
+              <!-- Linhas de porta e vinco -->
+              <line x1="310" y1="115" x2="310" y2="225" stroke="#475569" stroke-width="2"/>
+              <!-- Rodas -->
+              <circle cx="135" cy="235" r="33" fill="#0f172a" stroke="#cbd5e1" stroke-width="5"/>
+              <circle cx="135" cy="235" r="14" fill="#94a3b8"/>
+              <circle cx="465" cy="235" r="33" fill="#0f172a" stroke="#cbd5e1" stroke-width="5"/>
+              <circle cx="465" cy="235" r="14" fill="#94a3b8"/>
+            </g>
+          `;
+        }
+      }
+
+      const fullSvg = `
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" width="600" height="340" style="background:#0f172a;">
+          <defs>
+            <pattern id="gridPattern" width="20" height="20" patternUnits="userSpaceOnUse">
+              <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.035)" stroke-width="1"/>
+            </pattern>
+          </defs>
+          <rect width="600" height="340" fill="#0a1e3b"/>
+          <rect width="600" height="340" fill="url(#gridPattern)"/>
+          
+          <!-- Elementos Graficos Especificos do Veiculo -->
+          ${innerGraphics}
+          
+          <!-- Legenda e Instrucao de Toque -->
+          <rect x="40" y="10" width="520" height="24" rx="4" fill="rgba(15,23,42,0.85)" stroke="#1e3a63" stroke-width="1"/>
+          <text x="300" y="26" font-family="-apple-system, sans-serif" font-size="12" font-weight="800" fill="#fdba74" text-anchor="middle" letter-spacing="1">${badgeDesc}</text>
+          <text x="300" y="325" font-family="-apple-system, sans-serif" font-size="11" font-weight="700" fill="#ea580c" text-anchor="middle">[ TOQUE NESTA IMAGEM PARA APONTAR AVARIAS ]</text>
+        </svg>
+      `;
+
+      return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(fullSvg.trim());
+    }
+
+    // Funcao global disparada no onerror de cada <img> das 4 vistas
+    window.handleImgError = function(imgEl, side) {
+      if (!imgEl) return;
+      imgEl.onerror = null; // evita loop infinito
+      const modelName = (state && state.modeloFrota) || 'VW 812';
+      const def = FLEET_DEFINITIONS[modelName] || FLEET_DEFINITIONS['Outro'];
+      const fallbackUrl = getFallbackVehicleSvg(def.type, side, modelName);
+      imgEl.src = fallbackUrl;
+
+      // Se o usuario nao fez upload de foto manual propria, atualiza no estado para impressao e download
+      if (state && !state.fotosCarregadasPeloUsuario[side]) {
+        state.fotos[side] = fallbackUrl;
+      }
+    };
+
+    function getVehicleImagesForModel(modelName) {
+      const def = FLEET_DEFINITIONS[modelName] || FLEET_DEFINITIONS['VW 812'];
+      if (def && def.views) {
+        return { ...def.views };
+      }
+      return { ...DEFAULT_IMAGES };
+    }
+
+    const initialFotos = getVehicleImagesForModel('VW 812');
+
+    // Application state
+    let state = {
+      modeloFrota: 'VW 812',
+      modeloPersonalizado: '',
+      marcaModelo: 'VW 812',
+      agente: '',
+      km: '',
+      placas: '',
+      combustivel: '',
+      vistoriadoPor: '',
+      data: new Date().toISOString().split('T')[0],
+      patrimonio: '',
+      garagem: '',
+      respostas: {},
+      fotos: { ...initialFotos },
+      fotosCarregadasPeloUsuario: { dianteira: false, traseira: false, lat_esq: false, lat_dir: false },
+      pins: {
+        dianteira: [],
+        traseira: [],
+        lat_esq: [],
+        lat_dir: []
+      },
+      observacao: ''
+    };
+
+    // Modal state for active pin creation/edit
+    let activeModal = {
+      side: null,
+      x: null,
+      y: null,
+      editIndex: null
+    };
+
+    // Captura segura do evento de instalacao PWA
+    let deferredInstallPrompt = null;
+    try {
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredInstallPrompt = e;
+        const btn = document.getElementById('btnInstalarApp');
+        if (btn) {
+          btn.classList.remove('app-btn-outline');
+          btn.classList.add('app-btn-accent');
+        }
+      });
+    } catch (e) {}
+
+    // Registro seguro de Service Worker a partir de Blob (offline fallback sem quebrar em sandbox)
+    try {
+      if (typeof window !== 'undefined' && 'serviceWorker' in navigator && window.location.protocol.startsWith('http')) {
+        const swScript = `
+          const CACHE_NAME = 'vistoria-saab-pwa-v1';
+          self.addEventListener('install', (e) => {
+            self.skipWaiting();
+          });
+          self.addEventListener('activate', (e) => {
+            e.waitUntil(clients.claim());
+          });
+          self.addEventListener('fetch', (e) => {
+            if (e.request.method !== 'GET') return;
+            e.respondWith(
+              fetch(e.request).then((res) => {
+                const clone = res.clone();
+                caches.open(CACHE_NAME).then((cache) => cache.put(e.request, clone)).catch(() => {});
+                return res;
+              }).catch(() => caches.match(e.request))
+            );
+          });
+        `;
+        const swBlob = new Blob([swScript], { type: 'application/javascript' });
+        const swUrl = URL.createObjectURL(swBlob);
+        navigator.serviceWorker.register(swUrl).catch(() => {});
+      }
+    } catch (e) {
+      // Ignora silenciosamente se o ambiente ou sandbox bloquear Service Worker
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      try {
+        initForm();
+        initInspectionGrid();
+        initPhotoStages();
+        initEvents();
+        initPwaInstall();
+        renderHistory();
+        updateProgress();
+      } catch (err) {
+        console.warn('Inicialização concluída com avisos em sandbox:', err);
+      }
+    });
+
+    function initPwaInstall() {
+      const btn = document.getElementById('btnInstalarApp');
+      const modal = document.getElementById('installModal');
+      const btnClose = document.getElementById('btnInstallModalClose');
+      const btnOk = document.getElementById('btnInstallModalEntendi');
+
+      if (btn) {
+        btn.addEventListener('click', () => {
+          if (deferredInstallPrompt) {
+            deferredInstallPrompt.prompt();
+            deferredInstallPrompt.userChoice.then(() => {
+              deferredInstallPrompt = null;
+            }).catch(() => {});
+          } else if (modal) {
+            modal.classList.add('open');
+          }
+        });
+      }
+
+      if (btnClose && modal) {
+        btnClose.addEventListener('click', () => modal.classList.remove('open'));
+      }
+      if (btnOk && modal) {
+        btnOk.addEventListener('click', () => modal.classList.remove('open'));
+      }
+    }
+
+    function showToast(messageHtml) {
+      const toast = document.getElementById('toastNotice');
+      const msg = document.getElementById('toastMessage');
+      if (!toast || !msg) return;
+
+      msg.innerHTML = messageHtml;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 5500);
+    }
+
+    function initForm() {
+      document.getElementById('inpData').value = state.data;
+
+      // Fleet Selector events
+      const selFrota = document.getElementById('selModeloFrota');
+      const inpOutro = document.getElementById('inpModeloOutro');
+      const groupOutro = document.getElementById('groupModeloOutro');
+      const inpMarcaModelo = document.getElementById('inpMarcaModelo');
+
+      selFrota.addEventListener('change', () => {
+        const selected = selFrota.value;
+        state.modeloFrota = selected;
+
+        if (selected === 'Outro') {
+          groupOutro.style.display = 'flex';
+          const customVal = inpOutro.value.trim();
+          state.marcaModelo = customVal || 'Veículo Personalizado';
+          inpMarcaModelo.value = state.marcaModelo;
+          inpOutro.focus();
+          applyFleetModelToViews('Outro', false);
+        } else {
+          groupOutro.style.display = 'none';
+          state.marcaModelo = selected;
+          inpMarcaModelo.value = selected;
+          applyFleetModelToViews(selected, false);
+        }
+
+        updateFleetIllustration();
+      });
+
+      inpOutro.addEventListener('input', () => {
+        const val = inpOutro.value.trim();
+        state.modeloPersonalizado = val;
+        state.marcaModelo = val || 'Veículo Personalizado';
+        inpMarcaModelo.value = state.marcaModelo;
+      });
+
+      inpMarcaModelo.addEventListener('input', () => {
+        state.marcaModelo = inpMarcaModelo.value;
+      });
+
+      // Fuel Selector
+      document.querySelectorAll('#fuelSelector .fuel-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('#fuelSelector .fuel-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          state.combustivel = btn.dataset.fuel;
+          document.getElementById('inpCombustivel').value = btn.dataset.fuel;
+        });
+      });
+
+      // Quick tags in modal
+      document.querySelectorAll('.tag-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const area = document.getElementById('modalPinText');
+          const tag = btn.dataset.tag;
+          if (area.value.trim().length > 0) {
+            area.value += ', ' + tag;
+          } else {
+            area.value = tag;
+          }
+          area.focus();
+        });
+      });
+
+      // Initial fleet illustration
+      updateFleetIllustration();
+      inpMarcaModelo.value = state.marcaModelo;
+    }
+
+    function updateFleetIllustration() {
+      const def = FLEET_DEFINITIONS[state.modeloFrota] || FLEET_DEFINITIONS['Outro'];
+      const svgContainer = document.getElementById('fleetSvgBox');
+      const badge = document.getElementById('fleetTypeBadge');
+
+      if (svgContainer) {
+        const previewPhoto = def.photo || (def.views && def.views.dianteira);
+        const fallbackSvg = getFallbackVehicleSvg(def.type, 'lat_esq', state.modeloFrota);
+        if (previewPhoto) {
+          svgContainer.innerHTML = `<img src="${previewPhoto}" alt="${escapeHtml(def.label)}" class="fleet-preview-img" onerror="this.onerror=null; this.src='${fallbackSvg}';">`;
+        } else {
+          svgContainer.innerHTML = SILHOUETTES[def.type] || SILHOUETTES['outro'];
+        }
+      }
+      if (badge) {
+        badge.innerText = def.label;
+      }
+    }
+
+    function initInspectionGrid() {
+      const grid = document.getElementById('inspectionItemsGrid');
+      grid.innerHTML = '';
+
+      INSPECTION_ITEMS.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'item-card';
+        card.id = `card-item-${item.id}`;
+
+        card.innerHTML = `
+          <div class="item-title">${item.label}</div>
+          <div class="item-actions">
+            <button type="button" class="sn-btn sim" data-item="${item.id}" data-val="S">S (Sim)</button>
+            <button type="button" class="sn-btn nao" data-item="${item.id}" data-val="N">N (Não)</button>
+          </div>
+        `;
+
+        const btnS = card.querySelector('.sn-btn.sim');
+        const btnN = card.querySelector('.sn-btn.nao');
+
+        btnS.addEventListener('click', () => setItemAnswer(item.id, 'S'));
+        btnN.addEventListener('click', () => setItemAnswer(item.id, 'N'));
+
+        grid.appendChild(card);
+      });
+    }
+
+    function setItemAnswer(itemId, val) {
+      state.respostas[itemId] = val;
+      const card = document.getElementById(`card-item-${itemId}`);
+      if (!card) return;
+
+      const btnS = card.querySelector('.sn-btn.sim');
+      const btnN = card.querySelector('.sn-btn.nao');
+
+      btnS.classList.toggle('active', val === 'S');
+      btnN.classList.toggle('active', val === 'N');
+      card.classList.add('answered');
+
+      updateProgress();
+    }
+
+    function applyFleetModelToViews(modelName, preservePins = false) {
+      const modelImages = getVehicleImagesForModel(modelName);
+      const def = FLEET_DEFINITIONS[modelName];
+      const shouldMirrorLatDir = Boolean(def && def.mirrorLatDir);
+
+      SIDES.forEach(side => {
+        state.fotos[side] = modelImages[side];
+        state.fotosCarregadasPeloUsuario[side] = false;
+
+        const img = document.getElementById(`img-${side}`);
+        if (img) {
+          img.onerror = function() { handleImgError(this, side); };
+          img.src = state.fotos[side];
+          if (side === 'lat_dir') {
+            img.classList.toggle('is-mirrored', shouldMirrorLatDir);
+          }
+        }
+
+        const fileInput = document.querySelector(`.photo-file-input[data-side="${side}"]`);
+        if (fileInput) fileInput.value = '';
+
+        if (!preservePins) {
+          state.pins[side] = [];
+          renderPins(side);
+        }
+      });
+      updateProgress();
+    }
+
+    function initPhotoStages() {
+      const currentDef = FLEET_DEFINITIONS[state.modeloFrota];
+      SIDES.forEach(side => {
+        const stage = document.getElementById(`stage-${side}`);
+        const img = document.getElementById(`img-${side}`);
+        const fileInput = document.querySelector(`.photo-file-input[data-side="${side}"]`);
+
+        img.src = state.fotos[side];
+        if (side === 'lat_dir' && currentDef && currentDef.mirrorLatDir) {
+          img.classList.add('is-mirrored');
+        }
+
+        // File upload event (Substituir por foto real da camera ou galeria)
+        fileInput.addEventListener('change', (e) => {
+          const file = e.target.files[0];
+          if (!file) return;
+
+          const reader = new FileReader();
+          reader.onload = (loadEvent) => {
+            const dataUrl = loadEvent.target.result;
+            state.fotos[side] = dataUrl;
+            state.fotosCarregadasPeloUsuario[side] = true;
+            img.src = dataUrl;
+            if (side === 'lat_dir') {
+              img.classList.remove('is-mirrored');
+            }
+            renderPins(side);
+            updateProgress();
+          };
+          reader.readAsDataURL(file);
+        });
+
+        // Click / Touch on stage to place a pin
+        stage.addEventListener('click', (e) => {
+          if (e.target.classList.contains('pin-marker')) return;
+
+          const rect = stage.getBoundingClientRect();
+          const clickX = e.clientX - rect.left;
+          const clickY = e.clientY - rect.top;
+
+          const xPct = Math.min(100, Math.max(0, (clickX / rect.width) * 100));
+          const yPct = Math.min(100, Math.max(0, (clickY / rect.height) * 100));
+
+          openPinModal(side, xPct, yPct, null);
+        });
+      });
+
+      // Clear button per view
+      document.querySelectorAll('.photo-clear-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const side = btn.dataset.side;
+          const modelName = state.modeloFrota || 'VW 812';
+          const def = FLEET_DEFINITIONS[modelName] || FLEET_DEFINITIONS['Outro'];
+          const fallback = getFallbackVehicleSvg(def.type, side, modelName);
+
+          state.fotos[side] = fallback;
+          state.fotosCarregadasPeloUsuario[side] = false;
+          const img = document.getElementById(`img-${side}`);
+          if (img) {
+            img.src = fallback;
+            if (side === 'lat_dir') {
+              img.classList.remove('is-mirrored');
+            }
+          }
+          const fileInput = document.querySelector(`.photo-file-input[data-side="${side}"]`);
+          if (fileInput) fileInput.value = '';
+          renderPins(side);
+          updateProgress();
+        });
+      });
+    }
+
+    function openPinModal(side, x, y, editIndex = null) {
+      activeModal.side = side;
+      activeModal.x = x;
+      activeModal.y = y;
+      activeModal.editIndex = editIndex;
+
+      const modal = document.getElementById('pinModal');
+      const title = document.getElementById('modalPinTitle');
+      const text = document.getElementById('modalPinText');
+
+      const sideTitles = {
+        dianteira: 'Dianteira',
+        traseira: 'Traseira',
+        lat_esq: 'Lateral Esquerda',
+        lat_dir: 'Lateral Direita'
+      };
+
+      if (editIndex !== null) {
+        const pin = state.pins[side][editIndex];
+        title.innerText = `Editar Marcador #${editIndex + 1} (${sideTitles[side]})`;
+        text.value = pin.text;
+      } else {
+        const nextNum = state.pins[side].length + 1;
+        title.innerText = `Novo Marcador #${nextNum} (${sideTitles[side]})`;
+        text.value = '';
+      }
+
+      modal.classList.add('open');
+      setTimeout(() => text.focus(), 50);
+    }
+
+    function closePinModal() {
+      document.getElementById('pinModal').classList.remove('open');
+      activeModal = { side: null, x: null, y: null, editIndex: null };
+    }
+
+    function saveActivePin() {
+      const text = document.getElementById('modalPinText').value.trim();
+      if (!text) {
+        alert('Por favor, informe a descrição do dano.');
+        return;
+      }
+
+      const { side, x, y, editIndex } = activeModal;
+
+      if (editIndex !== null) {
+        state.pins[side][editIndex].text = text;
+      } else {
+        state.pins[side].push({
+          x: Math.round(x * 10) / 10,
+          y: Math.round(y * 10) / 10,
+          text: text
+        });
+      }
+
+      closePinModal();
+      renderPins(side);
+    }
+
+    function deletePin(side, index) {
+      if (confirm(`Deseja remover o marcador #${index + 1}?`)) {
+        state.pins[side].splice(index, 1);
+        renderPins(side);
+      }
+    }
+
+    function renderPins(side) {
+      const stage = document.getElementById(`stage-${side}`);
+      const container = document.getElementById(`container-${side}`);
+      const counter = document.getElementById(`count-${side}`);
+
+      // Remove existing pin elements from stage
+      stage.querySelectorAll('.pin-marker').forEach(el => el.remove());
+
+      const pins = state.pins[side];
+      counter.innerText = pins.length;
+
+      if (pins.length === 0) {
+        container.innerHTML = '<p class="empty-pins-msg">Nenhum dano marcado nesta foto.</p>';
+        return;
+      }
+
+      container.innerHTML = '';
+
+      pins.forEach((pin, index) => {
+        const num = index + 1;
+
+        // Render Pin on Stage
+        const marker = document.createElement('div');
+        marker.className = 'pin-marker';
+        marker.innerText = num;
+        marker.style.left = `${pin.x}%`;
+        marker.style.top = `${pin.y}%`;
+        marker.title = `#${num}: ${pin.text}`;
+
+        marker.addEventListener('click', (e) => {
+          e.stopPropagation();
+          openPinModal(side, pin.x, pin.y, index);
+        });
+
+        stage.appendChild(marker);
+
+        // Render in List Below
+        const itemRow = document.createElement('div');
+        itemRow.className = 'pin-item';
+        itemRow.innerHTML = `
+          <div class="pin-item-info">
+            <span class="pin-badge">${num}</span>
+            <span class="pin-desc" title="${escapeHtml(pin.text)}">${escapeHtml(pin.text)}</span>
+          </div>
+          <div style="display:flex; gap:4px;">
+            <button type="button" class="pin-delete-btn edit" title="Editar">✎</button>
+            <button type="button" class="pin-delete-btn" title="Excluir">&times;</button>
+          </div>
+        `;
+
+        itemRow.querySelector('.edit').addEventListener('click', () => {
+          openPinModal(side, pin.x, pin.y, index);
+        });
+
+        itemRow.querySelector('.pin-delete-btn:not(.edit)').addEventListener('click', () => {
+          deletePin(side, index);
+        });
+
+        container.appendChild(itemRow);
+      });
+    }
+
+    function updateProgress() {
+      // Items progress
+      const answeredCount = Object.keys(state.respostas).length;
+      const itemsPct = Math.round((answeredCount / 10) * 100);
+      const itemsBar = document.getElementById('itemsProgressBar');
+      itemsBar.style.width = `${itemsPct}%`;
+      itemsBar.classList.toggle('success', answeredCount === 10);
+      document.getElementById('itemsProgressLabel').innerText = `${answeredCount} de 10 respondidos`;
+
+      // Photos progress (active views with reference or user image)
+      const activePhotosCount = SIDES.filter(s => Boolean(state.fotos[s])).length;
+      const photosPct = Math.round((activePhotosCount / 4) * 100);
+      const photosBar = document.getElementById('photosProgressBar');
+      photosBar.style.width = `${photosPct}%`;
+      photosBar.classList.toggle('success', activePhotosCount === 4);
+      document.getElementById('photosProgressLabel').innerText = `${activePhotosCount} de 4 ativas`;
+    }
+
+    function initEvents() {
+      // Modal buttons
+      document.getElementById('btnModalClose').addEventListener('click', closePinModal);
+      document.getElementById('btnModalCancel').addEventListener('click', closePinModal);
+      document.getElementById('btnModalSave').addEventListener('click', saveActivePin);
+
+      // Save form
+      document.getElementById('btnSalvar').addEventListener('click', saveVistoriaToStorage);
+
+      // Clear form
+      document.getElementById('btnLimpar').addEventListener('click', clearForm);
+
+      // Load mock example
+      document.getElementById('btnCarregarExemplo').addEventListener('click', loadSampleData);
+
+      // Print, Save PDF, Export file
+      document.getElementById('btnImprimir').addEventListener('click', () => generatePrintView(true));
+      document.getElementById('btnSalvarPdf').addEventListener('click', triggerSavePdf);
+      document.getElementById('btnExportarArquivo').addEventListener('click', exportReportAsHtmlFile);
+      window.addEventListener('beforeprint', () => generatePrintView(false));
+    }
+
+    function readFormValues() {
+      state.modeloFrota = document.getElementById('selModeloFrota').value;
+      state.modeloPersonalizado = document.getElementById('inpModeloOutro').value.trim();
+      state.marcaModelo = document.getElementById('inpMarcaModelo').value.trim();
+      state.agente = document.getElementById('inpAgente').value.trim();
+      state.km = document.getElementById('inpKm').value.trim();
+      state.placas = document.getElementById('inpPlacas').value.trim().toUpperCase();
+      state.vistoriadoPor = document.getElementById('inpVistoriadoPor').value.trim();
+      state.data = document.getElementById('inpData').value;
+      state.patrimonio = document.getElementById('inpPatrimonio').value.trim();
+      state.garagem = document.getElementById('inpGaragem').value.trim();
+      state.observacao = document.getElementById('inpObservacao').value.trim();
+      state.combustivel = document.getElementById('inpCombustivel').value;
+    }
+
+    function saveVistoriaToStorage() {
+      readFormValues();
+
+      if (!state.placas && !state.agente) {
+        alert('Por favor, preencha ao menos as Placas ou o Agente para salvar a vistoria.');
+        return;
+      }
+
+      const totalPins = Object.values(state.pins).reduce((acc, p) => acc + p.length, 0);
+
+      const record = {
+        id: 'vistoria_' + Date.now(),
+        savedAt: new Date().toISOString(),
+        state: JSON.parse(JSON.stringify(state))
+      };
+
+      try {
+        let history = JSON.parse(safeStorage.getItem('tjsp_vistorias_history') || '[]');
+        history.unshift(record);
+        if (history.length > 20) history = history.slice(0, 20); // Limite de 20 registros
+        safeStorage.setItem('tjsp_vistorias_history', JSON.stringify(history));
+        if (safeStorage.isInMemory()) {
+          alert('Vistoria salva com sucesso nesta sessão (modo em memória temporária).');
+        } else {
+          alert('Vistoria salva com sucesso no banco de dados local!');
+        }
+        renderHistory();
+      } catch (err) {
+        console.error(err);
+        alert('Atenção: Não foi possível gravar a vistoria. Recomenda-se exportar o relatório ou imprimir.');
+      }
+    }
+
+    function renderHistory() {
+      const tbody = document.getElementById('historyTableBody');
+      const history = JSON.parse(safeStorage.getItem('tjsp_vistorias_history') || '[]');
+
+      if (history.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="7" style="text-align:center; color:#94a3b8; padding:20px;">Nenhuma vistoria salva anteriormente.</td></tr>';
+        return;
+      }
+
+      tbody.innerHTML = '';
+      history.forEach((rec, idx) => {
+        const s = rec.state;
+        const totalDanos = s.pins ? Object.values(s.pins).reduce((acc, p) => acc + p.length, 0) : 0;
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td><strong>${formatDateBr(s.data || rec.savedAt.split('T')[0])}</strong></td>
+          <td><span style="font-family:monospace; font-weight:700;">${escapeHtml(s.placas || 'Sem Placa')}</span><br><small style="color:var(--text-muted);">${escapeHtml(s.marcaModelo || s.modeloFrota || '')}</small></td>
+          <td>${escapeHtml(s.agente || 'Não informado')}</td>
+          <td>${escapeHtml(s.vistoriadoPor || 'Não informado')}</td>
+          <td>${s.km ? s.km + ' KM' : '-'}</td>
+          <td><span style="background:#fee2e2; color:#b91c1c; font-weight:700; padding:2px 8px; border-radius:10px; font-size:11px;">${totalDanos} danos</span></td>
+          <td style="text-align:right;">
+            <button class="app-btn app-btn-outline" style="padding:4px 8px; font-size:11px;" onclick="loadHistoryItem(${idx})">Abrir</button>
+            <button class="app-btn app-btn-danger" style="padding:4px 8px; font-size:11px;" onclick="deleteHistoryItem(${idx})">&times;</button>
+          </td>
+        `;
+        tbody.appendChild(row);
+      });
+    }
+
+    window.loadHistoryItem = function(idx) {
+      const history = JSON.parse(safeStorage.getItem('tjsp_vistorias_history') || '[]');
+      if (!history[idx]) return;
+      if (confirm('Carregar esta vistoria no formulário? Os dados não salvos atuais serão substituídos.')) {
+        state = JSON.parse(JSON.stringify(history[idx].state));
+        applyStateToUI();
+      }
+    };
+
+    window.deleteHistoryItem = function(idx) {
+      if (confirm('Deseja excluir este registro do histórico?')) {
+        let history = JSON.parse(safeStorage.getItem('tjsp_vistorias_history') || '[]');
+        history.splice(idx, 1);
+        safeStorage.setItem('tjsp_vistorias_history', JSON.stringify(history));
+        renderHistory();
+      }
+    };
+
+    function applyStateToUI() {
+      // Fleet and model
+      const selFrota = document.getElementById('selModeloFrota');
+      const inpOutro = document.getElementById('inpModeloOutro');
+      const groupOutro = document.getElementById('groupModeloOutro');
+      const inpMarcaModelo = document.getElementById('inpMarcaModelo');
+
+      const modelName = state.modeloFrota || 'Caminhão VUC VW 812';
+      selFrota.value = FLEET_DEFINITIONS[modelName] ? modelName : 'Outro';
+
+      if (selFrota.value === 'Outro') {
+        groupOutro.style.display = 'flex';
+        inpOutro.value = state.modeloPersonalizado || state.marcaModelo || '';
+      } else {
+        groupOutro.style.display = 'none';
+        inpOutro.value = '';
+      }
+
+      inpMarcaModelo.value = state.marcaModelo || modelName;
+      updateFleetIllustration();
+
+      document.getElementById('inpAgente').value = state.agente || '';
+      document.getElementById('inpKm').value = state.km || '';
+      document.getElementById('inpPlacas').value = state.placas || '';
+      document.getElementById('inpVistoriadoPor').value = state.vistoriadoPor || '';
+      document.getElementById('inpData').value = state.data || new Date().toISOString().split('T')[0];
+      document.getElementById('inpPatrimonio').value = state.patrimonio || '';
+      document.getElementById('inpGaragem').value = state.garagem || '';
+      document.getElementById('inpObservacao').value = state.observacao || '';
+      document.getElementById('inpCombustivel').value = state.combustivel || '';
+
+      // Fuel buttons
+      document.querySelectorAll('#fuelSelector .fuel-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.fuel === state.combustivel);
+      });
+
+      // Inspection buttons
+      INSPECTION_ITEMS.forEach(item => {
+        const card = document.getElementById(`card-item-${item.id}`);
+        if (!card) return;
+        const val = state.respostas[item.id];
+        const btnS = card.querySelector('.sn-btn.sim');
+        const btnN = card.querySelector('.sn-btn.nao');
+        btnS.classList.toggle('active', val === 'S');
+        btnN.classList.toggle('active', val === 'N');
+        card.classList.toggle('answered', Boolean(val));
+      });
+
+      // Photos & Pins
+      const def = FLEET_DEFINITIONS[state.modeloFrota];
+      const isMirroredLatDir = Boolean(def && def.mirrorLatDir && !state.fotosCarregadasPeloUsuario['lat_dir']);
+
+      SIDES.forEach(side => {
+        const img = document.getElementById(`img-${side}`);
+        if (img) {
+          img.onerror = function() { handleImgError(this, side); };
+          img.src = state.fotos[side] || DEFAULT_IMAGES[side];
+          if (side === 'lat_dir') {
+            img.classList.toggle('is-mirrored', isMirroredLatDir);
+          }
+        }
+        renderPins(side);
+      });
+
+      updateProgress();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function clearForm() {
+      if (!confirm('Deseja realmente limpar todos os campos do formulário?')) return;
+
+      const resetFotos = getVehicleImagesForModel('VW 812');
+      state = {
+        modeloFrota: 'VW 812',
+        modeloPersonalizado: '',
+        marcaModelo: 'VW 812',
+        agente: '',
+        km: '',
+        placas: '',
+        combustivel: '',
+        vistoriadoPor: '',
+        data: new Date().toISOString().split('T')[0],
+        patrimonio: '',
+        garagem: '',
+        respostas: {},
+        fotos: { ...resetFotos },
+        fotosCarregadasPeloUsuario: { dianteira: false, traseira: false, lat_esq: false, lat_dir: false },
+        pins: {
+          dianteira: [],
+          traseira: [],
+          lat_esq: [],
+          lat_dir: []
+        },
+        observacao: ''
+      };
+
+      applyStateToUI();
+    }
+
+    function loadSampleData() {
+      const sampleFotos = getVehicleImagesForModel('VW 812');
+      state.modeloFrota = 'VW 812';
+      state.modeloPersonalizado = '';
+      state.marcaModelo = 'VW 812';
+      state.agente = 'Carlos Alberto Mendonça';
+      state.km = '89420';
+      state.placas = 'BRA2E19';
+      state.combustivel = '3/4';
+      state.vistoriadoPor = 'Marcos Vinicius Ribeiro (Oficina Ipiranga)';
+      state.data = new Date().toISOString().split('T')[0];
+      state.patrimonio = 'TJSP 948211';
+      state.garagem = 'Patio Central Se : Garagem G1';
+      state.observacao = 'Veiculo liberado para escala da semana. Proxima troca de oleo e filtro estimada para 92.000 KM. Pneus em bom estado.';
+      state.fotos = { ...sampleFotos };
+      state.fotosCarregadasPeloUsuario = { dianteira: false, traseira: false, lat_esq: false, lat_dir: false };
+
+      // Answers
+      state.respostas = {
+        estepe: 'S',
+        chave_roda: 'S',
+        macaco: 'S',
+        triangulo: 'S',
+        extintor: 'S',
+        documentos: 'S',
+        artesp: 'S',
+        target_pedagio: 'S',
+        frente_radio: 'N',
+        cmov: 'S'
+      };
+
+      // Mock damage pins
+      state.pins.dianteira = [
+        { x: 28.5, y: 72.2, text: 'Risco superficial na quina do para-choque dianteiro esquerdo' },
+        { x: 50.0, y: 35.0, text: 'Pequena marca de pedra no capô central' }
+      ];
+      state.pins.traseira = [
+        { x: 74.0, y: 68.0, text: 'Lente da lanterna traseira direita com leve trinca' }
+      ];
+      state.pins.lat_esq = [
+        { x: 42.0, y: 55.0, text: 'Pequeno amassado na porta do motorista sem perda de pintura' }
+      ];
+      state.pins.lat_dir = [];
+
+      applyStateToUI();
+    }
+
+    function generatePrintView(shouldCallPrint = true) {
+      readFormValues();
+
+      const printArea = document.getElementById('printReportArea');
+      const sideTitles = {
+        dianteira: '1. Dianteira',
+        traseira: '2. Traseira',
+        lat_esq: '3. Lateral Esquerda (Motorista)',
+        lat_dir: '4. Lateral Direita (Passageiro)'
+      };
+
+      // Split 10 items into 2 rows of 5
+      const row1 = INSPECTION_ITEMS.slice(0, 5);
+      const row2 = INSPECTION_ITEMS.slice(5, 10);
+
+      const renderTableRow = (items) => {
+        return items.map(it => {
+          const val = state.respostas[it.id];
+          const textVal = val ? (val === 'S' ? 'SIM' : 'NÃO') : 'N/I';
+          const isNo = val === 'N';
+          const color = isNo ? '#b91c1c' : (val === 'S' ? '#15803d' : '#64748b');
+          return `<td style="text-align:center; padding:4px 5px;">
+            <div style="font-size:10px; font-weight:700; color:#334155;">${it.label}</div>
+            <div style="font-size:11.5px; font-weight:800; color:${color}; margin-top:2px;">[ ${textVal} ]</div>
+          </td>`;
+        }).join('');
+      };
+
+      // Build photos html with pin overlay and list
+      const photoBoxes = SIDES.map(side => {
+        const pins = state.pins[side];
+        let pinsHtml = '';
+        if (pins.length > 0) {
+          pinsHtml = '<ul class="print-pin-compact-list">' + pins.map((p, idx) => `
+            <li class="print-pin-compact-item" title="${escapeHtml(p.text)}">
+              <span class="print-pin-badge-inline">${idx + 1}</span>${idx + 1}. ${escapeHtml(p.text)}
+            </li>
+          `).join('') + '</ul>';
+        } else {
+          pinsHtml = '<p style="font-size:10px; color:#64748b; margin:3px 0 0 0; font-style:italic;">Sem avarias apontadas nesta vista.</p>';
+        }
+
+        // Generate markers for print image container
+        const markersHtml = pins.map((p, idx) => {
+          return `<div class="print-pin-marker" style="left:${p.x}%; top:${p.y}%;">${idx + 1}</div>`;
+        }).join('');
+
+        const defModel = FLEET_DEFINITIONS[state.modeloFrota];
+        const isMirror = side === 'lat_dir' && Boolean(defModel && defModel.mirrorLatDir && !state.fotosCarregadasPeloUsuario['lat_dir']);
+        const mirrorStyle = isMirror ? 'transform:scaleX(-1); -webkit-transform:scaleX(-1);' : '';
+
+        // Obter proporcao real da imagem exibida na tela para correspondencia exata
+        const screenImg = document.getElementById(`img-${side}`);
+        let aspectStyle = '';
+        if (screenImg && screenImg.naturalWidth && screenImg.naturalHeight) {
+          aspectStyle = `aspect-ratio: ${screenImg.naturalWidth} / ${screenImg.naturalHeight};`;
+        }
+
+        const fallbackSideSvg = getFallbackVehicleSvg(defModel ? defModel.type : 'outro', side, state.modeloFrota);
+        return `
+          <div class="print-photo-box">
+            <div class="print-photo-title">
+              <span>${sideTitles[side]}</span>
+              <span style="color:${pins.length ? '#ea580c' : '#64748b'};">${pins.length} avaria(s)</span>
+            </div>
+            <div class="print-stage-container">
+              <div class="print-image-wrapper" style="${aspectStyle}">
+                <img src="${state.fotos[side]}" alt="${sideTitles[side]}" style="${mirrorStyle}" onerror="this.onerror=null; this.src='${fallbackSideSvg}';">
+                ${markersHtml}
+              </div>
+            </div>
+            ${pinsHtml}
+          </div>
+        `;
+      }).join('');
+
+      const def = FLEET_DEFINITIONS[state.modeloFrota] || FLEET_DEFINITIONS['Outro'];
+      const printPreviewImg = def.photo || (def.views && def.views.dianteira);
+      const fallbackPrintSvg = getFallbackVehicleSvg(def.type, 'lat_esq', state.modeloFrota);
+      const vehicleIllustrationHtml = printPreviewImg
+        ? `<img src="${printPreviewImg}" alt="${escapeHtml(def.label)}" onerror="this.onerror=null; this.src='${fallbackPrintSvg}';" style="width:115px; height:54px; object-fit:contain; border-radius:3px; border:1px solid #cbd5e1; display:block; margin:0 auto;">`
+        : (SILHOUETTES[def.type] || SILHOUETTES['outro']);
+
+      printArea.innerHTML = `
+        <div class="print-page">
+          <div class="print-header">
+            <h1>SAAB 3.2.1 Oficina Ipiranga</h1>
+            <h2>Sistema de Controle e Manutenção de Frota</h2>
+            <h3>Plano de Vistoria de Veículo</h3>
+          </div>
+
+          <!-- Cabecalho de Identificacao com Silhueta ou Foto -->
+          <div style="display:grid; grid-template-columns: 1fr 140px; gap:10px; margin-bottom:10px; align-items:center;">
+            <table class="print-table" style="margin-bottom:0;">
+              <tr>
+                <td colspan="2" style="background:#f1f5f9;"><strong>Marca / Modelo:</strong> <span style="font-size:12px; font-weight:800; color:#0a1e3b;">${escapeHtml(state.marcaModelo || state.modeloFrota || 'Não informado')}</span></td>
+                <td><strong>Placas:</strong> <span style="font-size:12px; font-weight:800;">${escapeHtml(state.placas || 'Não informado')}</span></td>
+              </tr>
+              <tr>
+                <td style="width:45%;"><strong>Agente / Motorista:</strong> ${escapeHtml(state.agente || 'Não informado')}</td>
+                <td style="width:25%;"><strong>KM:</strong> ${escapeHtml(state.km || 'Não informado')}</td>
+                <td style="width:30%;"><strong>Combustível:</strong> <strong>${state.combustivel || 'N/I'}</strong> (R, 1/4, 1/2, 3/4, C)</td>
+              </tr>
+              <tr>
+                <td><strong>Vistoriado por:</strong> ${escapeHtml(state.vistoriadoPor || 'Não informado')}</td>
+                <td><strong>Data:</strong> ${formatDateBr(state.data)}</td>
+                <td><strong>Patrimônio:</strong> ${escapeHtml(state.patrimonio || 'Não informado')}</td>
+              </tr>
+              <tr>
+                <td colspan="3"><strong>Garagem:</strong> ${escapeHtml(state.garagem || 'Oficina Ipiranga')}</td>
+              </tr>
+            </table>
+
+            <div style="border:1px solid #0a1e3b; border-radius:4px; padding:4px; text-align:center; background:#f8fafc;">
+              <div style="font-size:9.5px; font-weight:800; text-transform:uppercase; color:#0a1e3b; margin-bottom:2px;">${def.label}</div>
+              <div style="width:100%; height:58px; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+                ${vehicleIllustrationHtml}
+              </div>
+            </div>
+          </div>
+
+          <table class="print-table">
+            <thead>
+              <tr>
+                <th colspan="5" style="text-align:left; font-size:11px; padding:4px 6px;">ITENS DE VISTORIA (S = Conforme / N = Não Conforme)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>${renderTableRow(row1)}</tr>
+              <tr>${renderTableRow(row2)}</tr>
+            </tbody>
+          </table>
+
+          <div class="print-section-heading">
+            Registro Fotográfico e Mapeamento de Danos / Acidentes (4 Vistas)
+          </div>
+
+          <div class="print-photo-grid">
+            ${photoBoxes}
+          </div>
+
+          <div class="print-obs-box">
+            <div class="print-obs-title">Observação Geral:</div>
+            <p class="print-obs-content">${escapeHtml(state.observacao || 'Nenhuma observação informada.')}</p>
+          </div>
+
+          <div class="print-signatures">
+            <div class="sig-block">
+              <div class="sig-space"></div>
+              <div class="sig-line">
+                ${escapeHtml(state.vistoriadoPor || 'Vistoriador Técnico Responsável')}
+              </div>
+              <div class="sig-sub">Vistoriador / SAAB 3.2.1 Oficina Ipiranga</div>
+            </div>
+            <div class="sig-block">
+              <div class="sig-space"></div>
+              <div class="sig-line">
+                ${escapeHtml(state.agente || 'Agente / Motorista APPA')}
+              </div>
+              <div class="sig-sub">Agente / Motorista APPA (Data: ${formatDateBr(state.data)})</div>
+            </div>
+          </div>
+        </div>
+      `;
+
+      if (shouldCallPrint) {
+        try {
+          window.print();
+        } catch (err) {
+          console.warn('Impressão indisponível no contexto atual:', err);
+          showToast('Impressão não disponível neste navegador. Use "Exportar Relatório (Arquivo)".');
+        }
+      }
+    }
+
+    function triggerSavePdf() {
+      generatePrintView(false);
+      showToast('Na tela seguinte, selecione o destino <strong>"Salvar como PDF"</strong> para gravar o relatório na pasta desejada.');
+      setTimeout(() => {
+        try {
+          window.print();
+        } catch (err) {
+          console.warn('Impressão indisponível no contexto atual:', err);
+        }
+      }, 400);
+    }
+
+    function exportReportAsHtmlFile() {
+      readFormValues();
+      generatePrintView(false);
+
+      const printHtml = document.getElementById('printReportArea').innerHTML;
+      const cleanPlate = (state.placas || 'sem_placa').replace(/[^a-zA-Z0-9]/g, '_').toUpperCase();
+      const cleanDate = (state.data || new Date().toISOString().split('T')[0]).replace(/-/g, '');
+      const filename = `vistoria_${cleanPlate}_${cleanDate}.html`;
+
+      const fullReportHtml = `<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vistoria ${escapeHtml(state.placas || '')} : SAAB 3.2.1 Oficina Ipiranga</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f8fafc;
+      color: #0f172a;
+    }
+    .report-container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 24px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .print-header {
+      text-align: center;
+      border-bottom: 2px solid #0a1e3b;
+      padding-bottom: 8px;
+      margin-bottom: 12px;
+    }
+    .print-header h1 {
+      font-size: 22px;
+      margin: 0;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: #0a1e3b;
+    }
+    .print-header h2 {
+      font-size: 14px;
+      margin: 3px 0;
+      color: #475569;
+    }
+    .print-header h3 {
+      font-size: 15px;
+      margin: 3px 0 0 0;
+      font-weight: 800;
+      color: #c2410c;
+    }
+    .print-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 12px;
+    }
+    .print-table th, .print-table td {
+      border: 1px solid #334155;
+      padding: 6px 8px;
+      font-size: 12px;
+    }
+    .print-table th {
+      background-color: #f1f5f9;
+      font-weight: bold;
+    }
+    .print-section-heading {
+      font-weight: 800;
+      font-size: 13px;
+      text-transform: uppercase;
+      margin-top: 14px;
+      margin-bottom: 8px;
+      border-bottom: 1.5px solid #0a1e3b;
+      padding-bottom: 4px;
+      color: #0a1e3b;
+    }
+    .print-photo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    @media (max-width: 680px) {
+      .print-photo-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .print-photo-box {
+      border: 1px solid #475569;
+      padding: 8px;
+      background: #ffffff;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+    }
+    .print-photo-title {
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      border-bottom: 1px solid #cbd5e1;
+      padding-bottom: 4px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .print-stage-container {
+      position: relative;
+      width: 100%;
+      min-height: 120px;
+      background: #0f172a;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .print-image-wrapper {
+      position: relative;
+      display: inline-block;
+      max-width: 100%;
+    }
+    .print-image-wrapper img {
+      display: block;
+      max-width: 100%;
+      max-height: 220px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+    .print-pin-marker {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #ea580c;
+      color: #ffffff;
+      border: 2px solid #ffffff;
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+    .print-pin-compact-list {
+      margin: 6px 0 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .print-pin-compact-item {
+      font-size: 11px;
+      line-height: 1.3;
+      margin-bottom: 3px;
+    }
+    .print-pin-badge-inline {
+      display: inline-block;
+      background: #ea580c;
+      color: #ffffff;
+      font-size: 10px;
+      font-weight: 800;
+      border-radius: 50%;
+      width: 16px;
+      height: 16px;
+      text-align: center;
+      line-height: 16px;
+      margin-right: 5px;
+    }
+    .print-obs-box {
+      border: 1px solid #475569;
+      padding: 8px 10px;
+      margin-top: 10px;
+      margin-bottom: 14px;
+      background: #f8fafc;
+      border-radius: 6px;
+    }
+    .print-obs-title {
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: #0f172a;
+      margin-bottom: 4px;
+    }
+    .print-obs-content {
+      margin: 0;
+      font-size: 11.5px;
+      line-height: 1.4;
+      color: #1e293b;
+    }
+    .print-signatures {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 24px;
+    }
+    .sig-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .sig-space {
+      height: 36px;
+    }
+    .sig-line {
+      width: 100%;
+      max-width: 320px;
+      border-top: 1.2px solid #000000;
+      padding-top: 5px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .sig-sub {
+      font-size: 11px;
+      color: #475569;
+      margin-top: 2px;
+    }
+    .export-footer-bar {
+      margin-top: 20px;
+      padding-top: 12px;
+      border-top: 1px solid #e2e8f0;
+      font-size: 11px;
+      color: #64748b;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="report-container">
+    ${printHtml}
+    <div class="export-footer-bar">
+      Documento gerado eletronicamente em ${new Date().toLocaleString('pt-BR')} : SAAB 3.2.1 Oficina Ipiranga
+    </div>
+  </div>
+</body>
+</html>`;
+
+      try {
+        const blob = new Blob([fullReportHtml], { type: 'text/html;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+
+        showToast(`Relatório salvo como <strong>"${filename}"</strong> na pasta <strong>Downloads</strong> do aparelho. Você pode movê-lo para a pasta "Vistorias".`);
+      } catch (err) {
+        console.error(err);
+        alert('Não foi possível realizar o download automático. Utilize o botão "Salvar como PDF".');
+      }
+    }
+
+    // Helper functions
+    function formatDateBr(dateStr) {
+      if (!dateStr) return '';
+      const parts = dateStr.split('-');
+      if (parts.length === 3) {
+        return `${parts[2]}/${parts[1]}/${parts[0]}`;
+      }
+      return dateStr;
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+  </script>
+<script>
+/* Skip artifact shell — fixed helpers served beside every artifact. */
+(function () {
+  "use strict";
+
+  var fmt = {
+    num: function (v, opts) { return new Intl.NumberFormat("pt-BR", opts || {}).format(v); },
+    brl: function (v) { return new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(v); },
+    pct: function (v) { return new Intl.NumberFormat("pt-BR", { style: "percent", maximumFractionDigits: 1 }).format(v); }
+  };
+
+  // axisFmt keeps axis tick labels short (compact notation) so long values
+  // (e.g. full BRL amounts) never clip against the plot edge.
+  function axisFmt(v) {
+    return fmt.num(v, { notation: "compact", maximumFractionDigits: 1 });
+  }
+
+  // format accepts a function OR one of the fmt names ("num" | "brl" | "pct").
+  function coerceFormat(spec) {
+    if (typeof spec === "function") return spec;
+    if (typeof spec === "string" && fmt[spec]) return fmt[spec];
+    return function (v) { return fmt.num(v); };
+  }
+
+  function accent() {
+    return getComputedStyle(document.documentElement).getPropertyValue("--accent").trim() || "#2563eb";
+  }
+  function mutedColor() {
+    return getComputedStyle(document.documentElement).getPropertyValue("--text-muted").trim() || "#5b6472";
+  }
+  function svgEl(tag, attrs) {
+    var el = document.createElementNS("http://www.w3.org/2000/svg", tag);
+    for (var k in attrs) el.setAttribute(k, attrs[k]);
+    return el;
+  }
+  function frame(el, w, h) {
+    var svg = svgEl("svg", { viewBox: "0 0 " + w + " " + h, role: "img" });
+    el.innerHTML = "";
+    el.appendChild(svg);
+    return svg;
+  }
+
+  // maxOf guards the axis scale: empty values would give -Infinity (truthy,
+  // so "|| 1" can't catch it) and a non-positive max would flip the chart.
+  function maxOf(values) {
+    var m = values.length ? Math.max.apply(null, values) : 0;
+    return m > 0 ? m : 1;
+  }
+
+  // bar(el, {labels:[], values:[], color?, format?}) — vertical bar chart.
+  function bar(el, cfg) {
+    var W = 640, H = 280, padL = 46, padB = 30, padT = 12;
+    var svg = frame(el, W, H);
+    var max = maxOf(cfg.values);
+    var n = cfg.values.length;
+    var plotW = W - padL - 12, plotH = H - padT - padB;
+    var step = plotW / n, bw = Math.min(step * 0.62, 64);
+    var color = cfg.color || accent();
+    var f = coerceFormat(cfg.format);
+    for (var g = 0; g <= 4; g++) {
+      var gy = padT + plotH - (plotH * g) / 4;
+      svg.appendChild(svgEl("line", { x1: padL, y1: gy, x2: W - 12, y2: gy, stroke: "currentColor", "stroke-opacity": 0.08 }));
+      var lbl = svgEl("text", { x: padL - 8, y: gy + 4, "text-anchor": "end", "font-size": 10, fill: mutedColor() });
+      lbl.textContent = axisFmt((max * g) / 4);
+      svg.appendChild(lbl);
+    }
+    cfg.values.forEach(function (v, i) {
+      var bh = Math.max(0, (v / max) * plotH);
+      var x = padL + i * step + (step - bw) / 2;
+      var y = padT + plotH - bh;
+      var r = svgEl("rect", { x: x, y: y, width: bw, height: bh, rx: 4, fill: color });
+      var t = svgEl("title", {});
+      t.textContent = cfg.labels[i] + ": " + f(v);
+      r.appendChild(t);
+      svg.appendChild(r);
+      var tx = svgEl("text", { x: x + bw / 2, y: H - 10, "text-anchor": "middle", "font-size": 11, fill: mutedColor() });
+      tx.textContent = cfg.labels[i];
+      svg.appendChild(tx);
+    });
+  }
+
+  // line(el, {labels:[], values:[], color?, format?}) — single-series line.
+  function line(el, cfg) {
+    var W = 640, H = 280, padL = 46, padB = 30, padT = 12;
+    var svg = frame(el, W, H);
+    var max = maxOf(cfg.values);
+    var n = cfg.values.length;
+    var plotW = W - padL - 16, plotH = H - padT - padB;
+    var color = cfg.color || accent();
+    var f = coerceFormat(cfg.format);
+    for (var g = 0; g <= 4; g++) {
+      var gy = padT + plotH - (plotH * g) / 4;
+      svg.appendChild(svgEl("line", { x1: padL, y1: gy, x2: W - 16, y2: gy, stroke: "currentColor", "stroke-opacity": 0.08 }));
+      var lbl = svgEl("text", { x: padL - 8, y: gy + 4, "text-anchor": "end", "font-size": 10, fill: mutedColor() });
+      lbl.textContent = axisFmt((max * g) / 4);
+      svg.appendChild(lbl);
+    }
+    var pts = cfg.values.map(function (v, i) {
+      var x = padL + (n === 1 ? plotW / 2 : (plotW * i) / (n - 1));
+      var y = padT + plotH - (v / max) * plotH;
+      return [x, y];
+    });
+    var d = pts.map(function (p, i) { return (i ? "L" : "M") + p[0].toFixed(1) + " " + p[1].toFixed(1); }).join(" ");
+    svg.appendChild(svgEl("path", { d: d, fill: "none", stroke: color, "stroke-width": 2, "stroke-linejoin": "round" }));
+    pts.forEach(function (p, i) {
+      var c = svgEl("circle", { cx: p[0], cy: p[1], r: 3.5, fill: color });
+      var t = svgEl("title", {});
+      t.textContent = cfg.labels[i] + ": " + f(cfg.values[i]);
+      c.appendChild(t);
+      svg.appendChild(c);
+      var tx = svgEl("text", { x: p[0], y: H - 10, "text-anchor": "middle", "font-size": 11, fill: mutedColor() });
+      tx.textContent = cfg.labels[i];
+      svg.appendChild(tx);
+    });
+  }
+
+  // donut(el, {labels:[], values:[], colors?}) — donut with center total.
+  function donut(el, cfg) {
+    var W = 320, H = 280, cx = W / 2, cy = H / 2, R = 92, r = 58;
+    var svg = frame(el, W, H);
+    var total = cfg.values.reduce(function (a, b) { return a + b; }, 0) || 1;
+    var palette = cfg.colors || [accent(), "#1baf7a", "#eda100", "#e34948", "#4a3aa7", "#e87ba4"];
+    var a0 = -Math.PI / 2;
+    cfg.values.forEach(function (v, i) {
+      var a1 = a0 + (v / total) * Math.PI * 2;
+      var large = a1 - a0 > Math.PI ? 1 : 0;
+      var p = ["M", cx + R * Math.cos(a0), cy + R * Math.sin(a0),
+        "A", R, R, 0, large, 1, cx + R * Math.cos(a1), cy + R * Math.sin(a1),
+        "L", cx + r * Math.cos(a1), cy + r * Math.sin(a1),
+        "A", r, r, 0, large, 0, cx + r * Math.cos(a0), cy + r * Math.sin(a0), "Z"].join(" ");
+      var path = svgEl("path", { d: p, fill: palette[i % palette.length] });
+      var t = svgEl("title", {});
+      t.textContent = cfg.labels[i] + ": " + fmt.num(v) + " (" + fmt.pct(v / total) + ")";
+      path.appendChild(t);
+      svg.appendChild(path);
+      a0 = a1;
+    });
+    var center = svgEl("text", { x: cx, y: cy + 5, "text-anchor": "middle", "font-size": 20, "font-weight": 650, fill: "currentColor" });
+    center.textContent = fmt.num(total);
+    svg.appendChild(center);
+  }
+
+  window.skipShell = { fmt: fmt };
+  window.skipChart = { bar: bar, line: line, donut: donut };
+})();
+
+</script>
+</body>
+</html>
